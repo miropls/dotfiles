@@ -1,0 +1,51 @@
+# font_family	 Iosevka Nerd Font
+# font_family	   Mononoki NFM
+font_family	 JetBrainsMonoNerdFont
+bold_font        auto
+italic_font      auto
+bold_italic_font auto
+font_size	 13.0
+
+tab_bar_edge top
+tab_bar_style powerline 
+tab_powerline_style round 
+hide_window_decorations yes
+# window_padding_width 5
+background_opacity 0.80
+
+# BEGIN_KITTY_THEME
+# Kanagawa
+# include current-theme.conf
+# include hardhacker.conf
+include cyberdream.conf
+# END_KITTY_THEME
+
+map alt+c copy_to_clipboard
+map alt+v paste_from_clipboard 
+
+map ctrl+shift+n new_window_with_cwd
+map alt+t new_tab
+map alt+n new_os_window
+map ctrl+shift+y set_tab_title 
+
+# windowing behavior and binds
+enabled_layouts splits:split_axis=vertical
+map ctrl+shift+enter launch --location=hsplit --cwd=current
+map ctrl+shift+v launch --location=vsplit --cwd=current
+map ctrl+shift+l layout_action rotate
+map ctrl+7 layout_action decrease_num_full_size_windows
+map ctrl+8 layout_action increase_num_full_size_windows
+map ctrl+m layout_action mirror toggle
+
+# move focus to window on _
+map ctrl+left neighboring_window left
+map ctrl+down neighboring_window down
+map ctrl+up neighboring_window up
+map ctrl+right neighboring_window right
+
+# move place of window towards _
+map shift+up move_window up
+map shift+left move_window left
+map shift+right move_window right
+map shift+down move_window down
+
