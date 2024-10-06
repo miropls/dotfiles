@@ -7,6 +7,9 @@ fi
 
 export ZSH="$HOME/.oh-my-zsh"
 
+export EDITOR="nvim"
+export VISUAL="$EDITOR"
+
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
 plugins=(
@@ -15,6 +18,7 @@ plugins=(
     zsh-autosuggestions
     zsh-syntax-highlighting
 )
+
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
 export DENO_INSTALL="/home/miropls/.deno"
@@ -22,9 +26,15 @@ export PATH="$DENO_INSTALL/bin:$PATH"
 export PATH="$PATH:/usr/local/go/bin"
 export PATH="$PATH:/$HOME/go/bin"
 export PATH="$PATH:/$HOME/.composer/vendor/bin"
+export PATH="$PATH:/home/miropls/.turso"
 
 alias nv="nvim"
+alias nv.="nvim ."
 alias cat="bat"
+alias z="zellij"
+alias za="zellij action"
+alias zr="zellij run" 
+alias ze="zellij edit"
 
 eval "$(zoxide init --cmd cd zsh)"
 
@@ -32,3 +42,4 @@ source $ZSH/oh-my-zsh.sh
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+

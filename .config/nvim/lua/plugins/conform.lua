@@ -24,7 +24,7 @@ return {
         yaml = { "yamlfix" },
         sql = { "sql-formatter" },
         php = { "pint", "php_cs_fixer" },
-        blade = { "pint" }
+        blade = { "blade-formatter" }
       },
 
       format_on_save = function(bufnr)

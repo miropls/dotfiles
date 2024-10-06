@@ -32,6 +32,22 @@ return {
         })
       end,
     },
+    {
+      "windwp/nvim-ts-autotag",
+      config = function()
+        vim.filetype.add({
+          pattern = {
+            [".*%.blade%.php"] = "blade",
+          },
+        })
+
+        require("nvim-ts-autotag").setup({
+          aliases = {
+            ["blade"] = "html"
+          }
+        })
+      end
+    },
     -- Autocompletion
     {
       "hrsh7th/nvim-cmp",
