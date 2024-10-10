@@ -1,5 +1,6 @@
 return {
 	"yamatsum/nvim-cursorline",
+	lazy = true,
 	config = function()
 		require("nvim-cursorline").setup({
 			cursorline = {

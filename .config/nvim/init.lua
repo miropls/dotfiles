@@ -1,5 +1,27 @@
 local o = vim.opt
 
+if vim.g.neovide then
+	vim.g.neovide_refresh_rate = 120
+	vim.g.neovide_fullscreen = true
+	-- vim.g.neovide_input_macos_option_key_is_meta = 'only_left'
+	-- mac
+	vim.keymap.set("n", "<D-s>", ":w<CR>") -- Save
+	vim.keymap.set("v", "<D-c>", '"+y') -- Copy
+	vim.keymap.set("n", "<D-v>", '"+P') -- Paste normal mode
+	vim.keymap.set("v", "<D-v>", '"+P') -- Paste visual mode
+	vim.keymap.set("c", "<D-v>", "<C-R>+") -- Paste command mode
+	vim.keymap.set("i", "<D-v>", '<ESC>l"+Pli') -- Paste insert mode
+
+	-- linux
+	vim.keymap.set("n", "<M-s>", ":w<CR>") -- Save
+	vim.keymap.set("v", "<M-c>", '"+y') -- Copy
+	vim.keymap.set("n", "<M-v>", '"+P') -- Paste normal mode
+	vim.keymap.set("v", "<M-v>", '"+P') -- Paste visual mode
+	vim.keymap.set("c", "<M-v>", "<C-R>+") -- Paste command mode
+	vim.keymap.set("i", "<M-v>", '<ESC>l"+Pli') -- Paste insert mode
+	o.termguicolors = true
+end
+
 -- Allow copy paste
 vim.api.nvim_set_keymap("", "<D-v>", "+p<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("!", "<D-v>", "<C-R>+", { noremap = true, silent = true })

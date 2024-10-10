@@ -1,9 +1,10 @@
 return {
 	"akinsho/toggleterm.nvim",
+	lazy = false,
 	version = "*",
 	config = function()
 		require("toggleterm").setup({
-			open_mapping = { "<ALT-i>", "<D-i>" },
+			open_mapping = { "<M-i>", "<D-i>" },
 			direction = "float",
 			float_opts = {
 				direction = "float",

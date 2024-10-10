@@ -1,5 +1,6 @@
 return {
 	"stevearc/oil.nvim",
+	lazy = false,
 	config = function()
 		require("oil").setup({
 			columns = {
@@ -17,8 +18,8 @@ return {
 			view_options = {
 				show_hidden = true,
 			},
-      watch_for_changes = true,
-      default_file_explorer = true
+			watch_for_changes = true,
+			default_file_explorer = true,
 		})
 		vim.keymap.set("n", "<leader>mm", "<CMD>Oil<CR>")
 	end,
