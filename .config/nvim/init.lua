@@ -41,31 +41,31 @@ o.updatetime = 50
 vim.g.mapleader = " "
 
 local opts = {
-  custom_keys = {
-    -- vim.keymap.set("n", "<leader>mm", vim.cmd.Ex),
-    vim.keymap.set("n", "<C-d>", "<C-d>zz"),
-    vim.keymap.set("n", "<C-u>", "<C-u>zz"),
-    vim.keymap.set("n", "n", "nzzzv"),
-    vim.keymap.set("n", "N", "Nzzzv"),
+	custom_keys = {
+		-- vim.keymap.set("n", "<leader>mm", vim.cmd.Ex),
+		vim.keymap.set("n", "<C-d>", "<C-d>zz"),
+		vim.keymap.set("n", "<C-u>", "<C-u>zz"),
+		vim.keymap.set("n", "n", "nzzzv"),
+		vim.keymap.set("n", "N", "Nzzzv"),
 
-    -- Yank to system clipboard
-    vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]]),
-    vim.keymap.set("n", "<leader>Y", [["+Y]]),
+		-- Yank to system clipboard
+		vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]]),
+		vim.keymap.set("n", "<leader>Y", [["+Y]]),
 
-    vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]]),
-  },
+		vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]]),
+	},
 }
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
-  vim.fn.system({
-    "git",
-    "clone",
-    "--filter=blob:none",
-    "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable", -- latest stable release
-    lazypath,
-  })
+	vim.fn.system({
+		"git",
+		"clone",
+		"--filter=blob:none",
+		"https://github.com/folke/lazy.nvim.git",
+		"--branch=stable", -- latest stable release
+		lazypath,
+	})
 end
 vim.opt.rtp:prepend(lazypath)
 
