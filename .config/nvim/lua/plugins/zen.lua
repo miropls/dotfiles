@@ -6,7 +6,6 @@ return {
         width = 150,
         options = {
           number = true,
-          relativenumber = true,
         },
       },
     })

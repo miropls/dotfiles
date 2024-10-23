@@ -1,8 +1,9 @@
 " Sets
 set guicursor=
-set relativenumber
+" set relativenumber
 set nohlsearch
 set hidden
+set visualbell
 set noerrorbells
 set tabstop=8
 set softtabstop=2

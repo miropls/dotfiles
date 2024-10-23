@@ -7,33 +7,6 @@ return {
     "williamboman/mason-lspconfig.nvim",
     "folke/neodev.nvim",
     {
-      "pmizio/typescript-tools.nvim",
-      dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
-      opts = {},
-      config = function()
-        require("typescript-tools").setup({
-          on_attach = function(client, bufnr)
-            vim.keymap.set({ "n", "v", "x" }, "<leader>ga", vim.lsp.buf.code_action, { buffer = bufnr })
-            vim.keymap.set({ "n" }, "<leader>tssd", "<cmd>TSToolsGoToSourceDefinition<CR>")
-            vim.keymap.set({ "n" }, "<leader>tsoi", "<cmd>TSToolsOrganizeImports<CR>")
-            vim.keymap.set({ "n" }, "<leader>tsai", "<cmd>TSToolsAddMissingImports<CR>")
-            vim.keymap.set({ "n" }, "<leader>tsfa", "<cmd>TSToolsFixAll<CR>")
-            vim.keymap.set({ "n" }, "<leader>tsrn", "<cmd>TSToolsRenameFile<CR>")
-            vim.keymap.set({ "n" }, "<leader>tsfr", "<cmd>TSToolsFileReferences<CR>")
-          end,
-          settings = {
-            tsserver_plugins = {
-              "@styled/typescript-styled-plugin",
-            },
-            jsx_close_tag = {
-              enable = true,
-              filetypes = { "javascriptreact", "typescriptreact" },
-            },
-          },
-        })
-      end,
-    },
-    {
       "windwp/nvim-ts-autotag",
       config = true
     },
@@ -165,15 +138,16 @@ return {
 
     require("mason-lspconfig").setup_handlers({
       function(server_name)
-        if server_name == "omnisharp" then
-          require("lspconfig").omnisharp.setup({
-            handlers = {
-              ["textDocument/definition"] = require('omnisharp_extended').definition_handler,
-              ["textDocument/typeDefinition"] = require('omnisharp_extended').type_definition_handler,
-              ["textDocument/references"] = require('omnisharp_extended').references_handler,
-              ["textDocument/implementation"] = require('omnisharp_extended').implementation_handler,
-            },
-          })
+        -- Select the correct LSP for Typescript based on the root file, deno.json for Deno, package.json for everything else
+        if server_name == "denols" then
+          require("lspconfig").denols.setup {
+            root_dir = require("lspconfig").util.root_pattern("deno.json", "deno.jsonc"),
+          }
+        elseif server_name == "ts_ls" then
+          require("lspconfig").ts_ls.setup {
+            root_dir = require("lspconfig").util.root_pattern("package.json"),
+            single_file_support = false,
+          }
         else
           require("lspconfig")[server_name].setup({
             capabilities = capabilities,
