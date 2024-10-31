@@ -1,6 +1,6 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
-add_newline = true 
+add_newline = false 
 
 palette = "catppuccin_macchiato"
 
@@ -218,6 +218,7 @@ format = '\[[$symbol$workspace]($style)\]'
 
 [time]
 format = '\[[$time]($style)\]'
+disabled = true
 
 [username]
 format = '\[[$user]($style)\]'
