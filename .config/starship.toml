@@ -1,5 +1,39 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
+# format = """
+# $directory\
+# $git_branch\
+# $fill\
+# $cmd_duration\
+# $nodejs\
+# $dotnet\
+# $python\
+# $java\
+# $c\
+# $golang\
+# $os\
+# $time\
+# $hostname\
+# $username\
+# $line_break\
+# $character\
+# """
+# minimal
+format = """
+$directory\
+$git_branch\
+$fill\
+$cmd_duration\
+$nodejs\
+$dotnet\
+$python\
+$java\
+$c\
+$golang\
+$line_break\
+$character\
+"""
+
 add_newline = false 
 
 palette = "catppuccin_macchiato"
@@ -32,206 +66,101 @@ base = "#24273a"
 mantle = "#1e2030"
 crust = "#181926"
 
-[character]
-# Note the use of Catppuccin color 'peach'
-success_symbol = "[❯](green)"
-error_symbol = "[❯](red)"
-vimcmd_symbol = "[❮](subtext1)" # For use with zsh-vi-mode
-
-[directory]
-truncation_length = 4
-style = "bold yellow"
-
-[aws]
-format = '\[[$symbol($profile)(\($region\))(\[$duration\])]($style)\]'
-
-[bun]
-format = '\[[$symbol($version)]($style)\]'
-
-[c]
-format = '\[[$symbol($version(-$name))]($style)\]'
-
-[cmake]
-format = '\[[$symbol($version)]($style)\]'
-
-[cmd_duration]
-format = '\[[⏱ $duration]($style)\]'
-
-[cobol]
-format = '\[[$symbol($version)]($style)\]'
-
-[conda]
-format = '\[[$symbol$environment]($style)\]'
-
-[crystal]
-format = '\[[$symbol($version)]($style)\]'
-
-[daml]
-format = '\[[$symbol($version)]($style)\]'
-
-[dart]
-format = '\[[$symbol($version)]($style)\]'
-
-[deno]
-format = '\[[$symbol($version)]($style)\]'
-
-[docker_context]
-format = '\[[$symbol$context]($style)\]'
-
-[dotnet]
-format = '\[[$symbol($version)(🎯 $tfm)]($style)\]'
-
-[elixir]
-format = '\[[$symbol($version \(OTP $otp_version\))]($style)\]'
-
-[elm]
-format = '\[[$symbol($version)]($style)\]'
-
-[erlang]
-format = '\[[$symbol($version)]($style)\]'
-
-[fennel]
-format = '\[[$symbol($version)]($style)\]'
-
-[fossil_branch]
-format = '\[[$symbol$branch]($style)\]'
-
-[gcloud]
-format = '\[[$symbol$account(@$domain)(\($region\))]($style)\]'
-
-[git_branch]
-format = '\[[$symbol$branch]($style)\]'
-
-[git_status]
-format = '([\[$all_status$ahead_behind\]]($style))'
-
-[golang]
-format = '\[[$symbol($version)]($style)\]'
-
-[gradle]
-format = '\[[$symbol($version)]($style)\]'
-
-[guix_shell]
-format = '\[[$symbol]($style)\]'
-
-[haskell]
-format = '\[[$symbol($version)]($style)\]'
-
-[haxe]
-format = '\[[$symbol($version)]($style)\]'
-
-[helm]
-format = '\[[$symbol($version)]($style)\]'
-
-[hg_branch]
-format = '\[[$symbol$branch]($style)\]'
-
-[java]
-format = '\[[$symbol($version)]($style)\]'
-
-[julia]
-format = '\[[$symbol($version)]($style)\]'
-
-[kotlin]
-format = '\[[$symbol($version)]($style)\]'
-
-[kubernetes]
-format = '\[[$symbol$context( \($namespace\))]($style)\]'
-
-[lua]
-format = '\[[$symbol($version)]($style)\]'
-
-[memory_usage]
-format = '\[$symbol[$ram( | $swap)]($style)\]'
-
-[meson]
-format = '\[[$symbol$project]($style)\]'
-
-[nim]
-format = '\[[$symbol($version)]($style)\]'
-
-[nix_shell]
-format = '\[[$symbol$state( \($name\))]($style)\]'
-
-[nodejs]
-format = '\[[$symbol($version)]($style)\]'
-
-[ocaml]
-format = '\[[$symbol($version)(\($switch_indicator$switch_name\))]($style)\]'
-
-[opa]
-format = '\[[$symbol($version)]($style)\]'
-
-[openstack]
-format = '\[[$symbol$cloud(\($project\))]($style)\]'
 
 [os]
-format = '\[[$symbol]($style)\]'
+format = '[ ](fg:blue)[$symbol ](fg:mantle bg:blue)[](fg:blue)'
+disabled = false
 
-[package]
-format = '\[[$symbol$version]($style)\]'
+[os.symbols]
+Alpine = ''
+Amazon = ''
+Android = ''
+Arch = ''
+CentOS = ''
+Debian = ''
+EndeavourOS = ''
+Fedora = ''
+FreeBSD = ''
+Garuda = ''
+Gentoo = ''
+Linux = ''
+Macos = ''
+Manjaro = ''
+Mariner = ''
+Mint = ''
+NetBSD = ''
+NixOS = ''
+OpenBSD = ''
+OpenCloudOS = ''
+openEuler = ''
+openSUSE = ''
+OracleLinux = '⊂⊃'
+Pop = ''
+Raspbian = ''
+Redhat = ''
+RedHatEnterprise = ''
+Solus = ''
+SUSE = ''
+Ubuntu = ''
+Unknown = ''
+Windows = ''
 
-[perl]
-format = '\[[$symbol($version)]($style)\]'
+[directory]
+format = '[](fg:peach)[󰷏 ](fg:mantle bg:peach)[](fg:peach bg:surface0)[ $read_only$truncation_symbol$path](fg:peach bg:surface0)[](fg:surface0)'
+home_symbol = " ~"
+truncation_symbol = ' '
+truncation_length = 3 
+read_only = '󱧵 '
+read_only_style = ''
 
-[php]
-format = '\[[$symbol($version)]($style)\]'
+[git_branch]
+format = '[ ](fg:sapphire)[$symbol](fg:surface0 bg:sapphire)[](fg:sapphire bg:surface0)[ $branch](fg:sapphire bg:surface0)[](fg:surface0)'
+symbol = ' '
 
-[pijul_channel]
-format = '\[[$symbol$channel]($style)\]'
+[nodejs]
+format = '[ ](fg:green)[$symbol](fg:crust bg:green)[](fg:green bg:surface0)[ $version](fg:green bg:surface0)[](fg:surface0)'
+symbol = '󰎙 '
 
-[pulumi]
-format = '\[[$symbol$stack]($style)\]'
+[deno]
+format = '[ ](fg:peach)[$symbol](fg:crust bg:peach)[](fg:peach bg:surface0)[ $version](fg:peach bg:surface0)[](fg:surface0)'
 
-[purescript]
-format = '\[[$symbol($version)]($style)\]'
+[golang]
+format = '[ ](fg:sky)[$symbol](fg:crust bg:sky)[](fg:sky bg:surface0)[ $version](fg:sky bg:surface0)[](fg:surface0)'
+symbol = '󰟓 '
+
+[dotnet]
+format = '([ ](fg:purple)[$symbol](fg:primary bg:purple)[](fg:purple bg:box)[ $tfm](fg:foreground bg:box)[](fg:box)'
+symbol = ' '
 
 [python]
-format = '\[[${symbol}${pyenv_prefix}(${version})(\($virtualenv\))]($style)\]'
+format = '[ ](fg:purple)[$symbol](fg:crust bg:purple)[](fg:purple bg:surface0)[ $version](fg:purple bg:surface0)[](fg:surface0)'
+symbol = ' '
 
-[raku]
-format = '\[[$symbol($version-$vm_version)]($style)\]'
+[java]
+format = '[ ](fg:red)[$symbol](fg:crust bg:red)[](fg:red bg:surface0)[ $version](fg:red bg:surface0)[](fg:surface0)'
+symbol = ' '
 
-[red]
-format = '\[[$symbol($version)]($style)\]'
+[c]
+format = '[ ](fg:blue)[$symbol](fg:crust bg:blue)[](fg:blue bg:surface0)[ $version](fg:blue bg:surface0)[](fg:surface0)'
+symbol = ' '
 
-[ruby]
-format = '\[[$symbol($version)]($style)\]'
+[fill]
+symbol = ' '
+style = 'fg:current_line'
 
-[rust]
-format = '\[[$symbol($version)]($style)\]'
-
-[scala]
-format = '\[[$symbol($version)]($style)\]'
-
-[spack]
-format = '\[[$symbol$environment]($style)\]'
-
-[sudo]
-format = '\[[as $symbol]($style)\]'
-
-[swift]
-format = '\[[$symbol($version)]($style)\]'
-
-[terraform]
-format = '\[[$symbol$workspace]($style)\]'
+[cmd_duration]
+min_time = 500
+format = '[](fg:blue)[ ](fg:crust bg:blue)[](fg:blue bg:surface0)[ $duration ](fg:blue bg:surface0)[](fg:surface0)'
 
 [time]
-format = '\[[$time]($style)\]'
-disabled = true
+format = '[ ](fg:rosewater)[󰦖 ](fg:crust bg:rosewater)[](fg:rosewater bg:surface0)[ $time](fg:rosewater bg:surface0)[](fg:surface0)'
+time_format = '%H:%M:%S'
+disabled = false
 
 [username]
-format = '\[[$user]($style)\]'
+format = '[ ](fg:yellow)[ ](fg:surface0 bg:yellow)[](fg:yellow bg:surface0)[ $user](fg:yellow bg:surface0)[](fg:surface0) '
+show_always = true
 
-[vagrant]
-format = '\[[$symbol($version)]($style)\]'
-
-[vlang]
-format = '\[[$symbol($version)]($style)\]'
-
-[zig]
-format = '\[[$symbol($version)]($style)\]'
-
-[solidity]
-format = '\[[$symbol($version)]($style)\]'
-
+[character]
+success_symbol = "[❯](fg:bold green)"
+error_symbol = "[❯](fg:bold red)"

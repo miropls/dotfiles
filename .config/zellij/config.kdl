@@ -1,3 +1,12 @@
+keybinds {
+  normal {
+    bind "Alt c" { Copy; }
+  }
+  scroll {
+    bind "Alt c" { Copy; }
+  }
+}
+
 themes {
     catppuccin-macchiato {
     bg "#5b6078" // Surface2
