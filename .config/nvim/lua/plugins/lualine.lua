@@ -50,6 +50,7 @@ return {
 					},
 					lualine_x = {
 						{ require("noice").api.statusline.mode.get, cond = require("noice").api.statusline.mode.has },
+						{ "overseer" },
 					},
 					lualine_y = {
 						function()
