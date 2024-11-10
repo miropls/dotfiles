@@ -30,6 +30,7 @@ $python\
 $java\
 $c\
 $golang\
+$time\
 $line_break\
 $character\
 """
@@ -153,7 +154,7 @@ min_time = 500
 format = '[](fg:blue)[ ](fg:crust bg:blue)[](fg:blue bg:surface0)[ $duration ](fg:blue bg:surface0)[](fg:surface0)'
 
 [time]
-format = '[ ](fg:rosewater)[󰦖 ](fg:crust bg:rosewater)[](fg:rosewater bg:surface0)[ $time](fg:rosewater bg:surface0)[](fg:surface0)'
+format = '[ ](fg:flamingo)[󰦖 ](fg:crust bg:flamingo)[](fg:flamingo bg:surface0)[ $time](fg:flamingo bg:surface0)[](fg:surface0)'
 time_format = '%H:%M:%S'
 disabled = false
 
