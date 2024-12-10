@@ -5,116 +5,78 @@ return {
 	dependencies = {
 		"williamboman/mason.nvim",
 		"williamboman/mason-lspconfig.nvim",
-		"folke/neodev.nvim",
+		{
+			"folke/lazydev.nvim",
+			ft = "lua",
+			{
+				"saghen/blink.cmp",
+				opts = {
+					sources = {
+						completion = {
+							enabled_providers = { "lsp", "path", "snippets", "buffer", "lazydev" },
+						},
+						providers = {
+							lsp = { fallback_for = { "lazydev" } },
+							lazydev = { name = "LazyDev", module = "lazydev.integrations.blink" },
+						},
+					},
+				},
+			},
+		},
 		{
 			"windwp/nvim-ts-autotag",
 			config = true,
 		},
-		-- Autocompletion
-		{
-			"hrsh7th/nvim-cmp",
-			config = function()
-				local cmp = require("cmp")
-				local luasnip = require("luasnip")
-				local lspkind = require("lspkind")
-
-				local has_words_before = function()
-					unpack = unpack or table.unpack
-					local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-					return col ~= 0
-						and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
-				end
-
-				---@diagnostic disable-next-line missing-fields
-				cmp.setup({
-					snippet = {
-						expand = function(args)
-							luasnip.lsp_expand(args.body)
-						end,
-					},
-					sources = cmp.config.sources({
-						{ name = "nvim_lsp" },
-						{ name = "luasnip" },
-						{ name = "buffer" },
-						require("luasnip.loaders.from_vscode").lazy_load(),
-					}),
-					window = {
-						completion = cmp.config.window.bordered(),
-						documentation = cmp.config.window.bordered(),
-					},
-					---@diagnostic disable-next-line missing-fields
-					formatting = {
-						format = lspkind.cmp_format({
-							mode = "symbol_text",
-							maxwidth = 50,
-							ellipsis_char = "...",
-						}),
-					},
-					mapping = {
-						["<CR>"] = cmp.mapping.confirm({ select = true }),
-						["<C-g>"] = cmp.mapping.scroll_docs(-4),
-						["<C-b>"] = cmp.mapping.scroll_docs(4),
-						["<Up>"] = cmp.mapping.select_prev_item({ behavior = "select" }),
-						["<Down>"] = cmp.mapping.select_next_item({ behavior = "select" }),
-						["<C-Space>"] = cmp.mapping(function(fallback)
-							if cmp.visible() then
-								cmp.abort()
-							else
-								cmp.complete()
-							end
-						end),
-						["<Tab>"] = cmp.mapping(function(fallback)
-							if cmp.visible() then
-								cmp.select_next_item({ behavior = "insert" })
-							-- You could replace the expand_or_jumpable() calls with expand_or_locally_jumpable()
-							-- that way you will only jump inside the snippet region
-							elseif luasnip.expand_or_jumpable() then
-								luasnip.expand_or_jump()
-							elseif has_words_before() then
-								cmp.complete()
-							else
-								fallback()
-							end
-						end, { "i", "s" }),
-
-						["<S-Tab>"] = cmp.mapping(function(fallback)
-							if cmp.visible() then
-								cmp.select_prev_item({ behavior = "insert" })
-							elseif luasnip.jumpable(-1) then
-								luasnip.jump(-1)
-							else
-								fallback()
-							end
-						end, { "i", "s" }),
-					},
-				})
-			end,
-		},
-		{ "hrsh7th/cmp-buffer" },
-		{ "hrsh7th/cmp-path" },
-		{ "saadparwaiz1/cmp_luasnip" },
-		{ "hrsh7th/cmp-nvim-lsp" },
-		{ "hrsh7th/cmp-nvim-lua" },
 		{
 			"windwp/nvim-autopairs",
 			event = "InsertEnter",
 			config = true,
 		},
-
-		-- Snippets
+		-- Autocompletion
 		{
-			"L3MON4D3/LuaSnip",
-			dependencies = { "rafamadriz/friendly-snippets" },
+			"saghen/blink.cmp",
+			lazy = false,
+			dependencies = "rafamadriz/friendly-snippets",
+			version = "v0.*",
+			---@module 'blink.cmp'
+			---@type blink.cmp.Config
+			opts = {
+				-- 'default' for mappings similar to built-in completion
+				-- 'super-tab' for mappings similar to vscode (tab to accept, arrow keys to navigate)
+				-- 'enter' for mappings similar to 'super-tab' but with 'enter' to accept
+				-- see the "default configuration" section below for full documentation on how to define
+				-- your own keymap.
+				keymap = { preset = "enter" },
+
+				appearance = {
+					use_nvim_cmp_as_default = true,
+					nerd_font_variant = "mono",
+				},
+				sources = {
+					completion = {
+						enabled_providers = { "lsp", "path", "snippets", "buffer" },
+					},
+				},
+
+				-- experimental auto-brackets support
+				completion = {
+					accept = { auto_brackets = { enabled = true } },
+					documentation = {
+						auto_show = true,
+						auto_show_delay_ms = 0,
+					},
+				},
+
+				-- experimental signature help support
+				signature = { enabled = true },
+			},
+			opts_extend = { "sources.completion.enabled_providers" },
 		},
 		{
 			"onsails/lspkind.nvim",
 		},
-		{
-			"Hoffs/omnisharp-extended-lsp.nvim",
-		},
 	},
 	config = function()
-		require("neodev").setup()
 		require("mason").setup()
 		require("mason-lspconfig").setup({
 			ensure_installed = {
@@ -131,22 +93,22 @@ return {
 			},
 			automatic_insallation = true,
 		})
-		local cmp_autopairs = require("nvim-autopairs.completion.cmp")
-		local cmp = require("cmp")
-
-		local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 		require("mason-lspconfig").setup_handlers({
 			function(server_name)
+				local lsp_capabilities = require("lspconfig")[server_name].capabilities
+				local capabilities = require("blink.cmp").get_lsp_capabilities(lsp_capabilities)
 				-- Select the correct LSP for Typescript based on the root file, deno.json for Deno, package.json for everything else
 				if server_name == "denols" then
 					require("lspconfig").denols.setup({
 						root_dir = require("lspconfig").util.root_pattern("deno.json", "deno.jsonc"),
+						capabilities = capabilities,
 					})
 				elseif server_name == "ts_ls" then
 					require("lspconfig").ts_ls.setup({
 						root_dir = require("lspconfig").util.root_pattern("package.json"),
 						single_file_support = false,
+						capabilities = capabilities,
 					})
 				else
 					require("lspconfig")[server_name].setup({
@@ -170,10 +132,21 @@ return {
 		-- Keymaps for LSP actions
 		local builtin = require("telescope.builtin")
 
+		vim.api.nvim_create_autocmd({ "VimEnter", "VimResized" }, {
+			desc = "Setup LSP hover window",
+			callback = function()
+				local width = math.floor(vim.o.columns * 0.8)
+				local height = math.floor(vim.o.lines * 0.3)
+
+				vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+					border = "rounded",
+					max_width = width,
+					max_height = height,
+				})
+			end,
+		})
 		-- Native LSP bindings
-		vim.keymap.set("n", "gh", function()
-			return vim.lsp.buf.hover()
-		end)
+		vim.keymap.set("n", "gh", vim.lsp.buf.hover)
 		vim.keymap.set("n", "gl", vim.diagnostic.open_float)
 		vim.keymap.set("n", "gD", vim.lsp.buf.declaration)
 		vim.keymap.set("n", "ga", vim.lsp.buf.code_action)
@@ -191,9 +164,6 @@ return {
 		vim.keymap.set("n", "<leader>dw", builtin.diagnostics, {}) -- Workspace diagnostics
 
 		vim.keymap.set("n", "<leader>ni", "<cmd>LspInfo<CR>")
-
-		-- Auto insert parenthesis after function or method completion
-		cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
 
 		-- Sign column icons
 		local function set_sign_icons(opts)

@@ -1,9 +1,8 @@
 return {
-	"MeanderingProgrammer/markdown.nvim",
-	lazy = true,
-	name = "render-markdown", -- Only needed if you have another plugin named markdown.nvim
-	dependencies = { "nvim-treesitter/nvim-treesitter" },
-	config = function()
-		require("render-markdown").setup({})
-	end,
+	"MeanderingProgrammer/render-markdown.nvim",
+	ft = "markdown",
+	dependencies = { "nvim-treesitter/nvim-treesitter", "echasnovski/mini.nvim" }, -- if you use the mini.nvim suite
+	---@module 'render-markdown'
+	---@type render.md.UserConfig
+	opts = {},
 }
