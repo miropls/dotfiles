@@ -8,18 +8,11 @@ return {
 		{
 			"folke/lazydev.nvim",
 			ft = "lua",
-			{
-				"saghen/blink.cmp",
-				opts = {
-					sources = {
-						completion = {
-							enabled_providers = { "lsp", "path", "snippets", "buffer", "lazydev" },
-						},
-						providers = {
-							lsp = { fallback_for = { "lazydev" } },
-							lazydev = { name = "LazyDev", module = "lazydev.integrations.blink" },
-						},
-					},
+			opts = {
+				library = {
+					-- See the configuration section for more details
+					-- Load luvit types when the `vim.uv` word is found
+					{ path = "${3rd}/luv/library", words = { "vim%.uv" } },
 				},
 			},
 		},
@@ -54,7 +47,11 @@ return {
 				},
 				sources = {
 					completion = {
-						enabled_providers = { "lsp", "path", "snippets", "buffer" },
+						enabled_providers = { "lsp", "path", "snippets", "buffer", "lazydev" },
+					},
+					providers = {
+						lsp = { fallback_for = { "lazydev" } },
+						lazydev = { name = "LazyDev", module = "lazydev.integrations.blink" },
 					},
 				},
 

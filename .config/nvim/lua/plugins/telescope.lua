@@ -26,7 +26,6 @@ return {
 				find_files = {
 					find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*" },
 					theme = "ivy",
-					layout_config = { height = 250 },
 				},
 			},
 			extensions = {
