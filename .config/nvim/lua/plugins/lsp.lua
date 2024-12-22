@@ -51,6 +51,10 @@ return {
             lsp = { fallbacks = { "lazydev" } },
             lazydev = { name = "LazyDev", module = "lazydev.integrations.blink" },
           },
+          min_keyword_length = function(ctx)
+            if ctx.mode == 'cmdline' then return 4 end
+            return 0
+          end
         },
 
         -- experimental auto-brackets support
