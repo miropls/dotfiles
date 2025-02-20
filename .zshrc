@@ -28,9 +28,10 @@ alias nv="nvim"
 alias nv.="nvim ."
 alias hx.="hx ."
 alias cat="bat"
-alias gs="git status"
 alias pn="pnpm"
-alias lg="lazygit"
+alias gs="git status"
+alias btc="bluetoothctl connect 38:18:4C:22:01:43"
+alias btd="bluetoothctl disconnect 38:18:4C:22:01:43"
 
 eval "$(zoxide init --cmd cd zsh)"
 
