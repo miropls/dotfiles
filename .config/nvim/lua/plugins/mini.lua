@@ -32,5 +32,7 @@ return {
 		require("mini.surround").setup()
 
 		require("mini.comment").setup()
+
+		require("mini.notify").setup()
 	end,
 }
