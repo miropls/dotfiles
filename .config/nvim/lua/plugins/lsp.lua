@@ -39,7 +39,32 @@ return {
 				-- 'enter' for mappings similar to 'super-tab' but with 'enter' to accept
 				-- see the "default configuration" section below for full documentation on how to define
 				-- your own keymap.
-				keymap = { preset = "enter" },
+				keymap = {
+					preset = "enter",
+				},
+				cmdline = {
+					keymap = {
+						preset = "enter",
+						["<Tab>"] = {
+							function(cmp)
+								if not cmp.is_menu_visible() then
+									cmp.show()
+								else
+									cmp.select_next()
+								end
+							end,
+						},
+						["<S-Tab>"] = {
+							function(cmp)
+								if not cmp.is_menu_visible() then
+									cmp.show()
+								else
+									cmp.select_prev()
+								end
+							end,
+						},
+					},
+				},
 
 				appearance = {
 					use_nvim_cmp_as_default = true,
@@ -65,6 +90,12 @@ return {
 					documentation = {
 						auto_show = true,
 						auto_show_delay_ms = 0,
+					},
+					list = {
+						selection = {
+							preselect = true,
+							auto_insert = false,
+						},
 					},
 				},
 

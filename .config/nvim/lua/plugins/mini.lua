@@ -5,7 +5,6 @@ return {
 		require("mini.icons").setup()
 
 		require("mini.git").setup()
-		require("mini.statusline").setup({ use_icons = true })
 
 		require("mini.splitjoin").setup({
 			mappings = {
