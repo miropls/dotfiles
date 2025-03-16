@@ -30,6 +30,11 @@ alias nv.="nvim ."
 alias cat="bat"
 alias pn="pnpm"
 alias gs="git status"
+alias xi="xbps-install"
+alias xq="xbps-query -Rs"
+alias xql="xbps-query"
+alias xr="xbps-remove"
+alias dayz="cd ~/.var/app/com.valvesoftware.Steam/.local/share/Steam/steamapps/common/DayZServer"
 
 eval "$(zoxide init --cmd cd zsh)"
 

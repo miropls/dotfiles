@@ -1,0 +1,107 @@
+# Author: miropls <miro@paintola.tech>
+
+attribute = "green"
+keyword = "#666666"
+"keyword.directive" = "gray4" # -- preprocessor comments (#if in C)
+"keyword.control.return" = "#505050"
+"keyword.control.exception" = "#505050"
+namespace = "green"
+punctuation = "gray6"
+"punctuation.delimiter" = "gray6"
+operator = "gray6"
+special = "lack"
+"variable.other.member" = "gray7"
+variable = "gray8"
+"variable.parameter" = { fg = "gray7" }
+"variable.builtin" = "gray7"
+type = "green"
+"type.builtin" = "green" 
+"type.enum" = "gray7"
+"type.enum.variant" = "gray7"
+constructor = "gray7"
+function = "luster"
+tag = "gray5"
+comment = "#3a3a3a"
+constant = "gray7"
+"constant.builtin" = "gray6"
+string = "lack"
+"constant.character.escape" = "green"
+label = "gray5"
+tabstop = { modifiers = ["italic"], bg = "gray2" }
+
+"markup.heading" = "green"
+"markup.bold" = { modifiers = ["bold"] }
+"markup.italic" = { modifiers = ["italic"] }
+"markup.strikethrough" = { modifiers = ["crossed_out"] }
+"markup.link.url" = { fg = "blue", modifiers = ["underlined"] }
+"markup.link.text" = "blue"
+"markup.raw" = "gray8"
+
+"diff.plus" = "green"
+"diff.minus" = "red"
+"diff.delta" = "yellow"
+
+"ui.background" = { bg = "gray1" }
+"ui.background.separator" = { fg = "comet" }
+"ui.linenr" = { fg = "gray4" }
+"ui.linenr.selected" = { fg = "gray7" }
+"ui.statusline" = { fg = "gray7", bg = "#242424" }
+"ui.statusline.inactive" = { fg = "gray4", bg = "gray1" }
+"ui.popup" = { bg = "gray2" }
+"ui.window" = { fg = "gray4" }
+"ui.help" = { bg = "gray4", fg = "gray1" }
+"ui.text" = { fg = "gray6" }
+"ui.text.focus" = { fg = "gray4" }
+"ui.text.inactive" = "gray6"
+"ui.text.directory" = { fg = "blue" }
+"ui.virtual" = { fg = "comet" }
+"ui.virtual.ruler" = { bg = "green" }
+"ui.virtual.jump-label" = { fg = "green", modifiers = ["bold"] }
+
+"ui.virtual.indent-guide" = { fg = "comet" }
+
+"ui.selection" = { bg = "gray3" }
+"ui.cursor.select" = { bg = "gray3" }
+"ui.cursor.insert" = { bg = "gray8" }
+"ui.cursor.match" = { fg = "gray6", bg = "gray6" }
+"ui.cursor" = { modifiers = ["reversed"] }
+"ui.cursorline.primary" = { bg = "gray2" }
+"ui.highlight" = { bg = "gray2" }
+"ui.highlight.frameline" = { bg = "#634450" }
+"ui.debug" = { fg = "#634450" }
+"ui.debug.breakpoint" = { fg = "apricot" }
+"ui.menu" = { fg = "gray8", bg = "gray2" }
+"ui.menu.selected" = { fg = "gray3", bg = "gray8" }
+"ui.menu.scroll" = { fg = "gray5", bg = "gray3" }
+
+"diagnostic.hint" = { underline = { color = "gray6", style = "curl" } }
+"diagnostic.info" = { underline = { color = "gray6", style = "curl" } }
+"diagnostic.warning" = { underline = { color = "orange", style = "curl" } }
+"diagnostic.error" = { underline = { color = "red", style = "curl" } }
+"diagnostic.unnecessary" = { modifiers = ["dim"] }
+"diagnostic.deprecated" = { modifiers = ["crossed_out"] }
+
+warning = "orange"
+error = "red"
+info = "gray6"
+hint = "gray6"
+
+
+[palette]
+lack = "#708090"
+luster = "#deeeed"
+orange = "#ffaa88"
+yellow = "#abab77"
+green = "#789978"
+blue = "#7788AA"
+red = "#D70000"
+black = "#000000"
+gray1 = "#101010"
+gray2 = "#191919"
+gray3 = "#2a2a2a"
+gray4 = "#444444"
+gray5 = "#555555"
+gray6 = "#7a7a7a"
+gray7 = "#aaaaaa"
+gray8 = "#cccccc"
+gray9 = "#DDDDDD"
