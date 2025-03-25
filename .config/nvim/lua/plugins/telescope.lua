@@ -37,7 +37,7 @@ return {
     -- find (in) files
     vim.keymap.set("n", "<leader>f", builtin.find_files)
     vim.keymap.set("n", "<leader>gf", builtin.git_files)
-    vim.keymap.set("n", "<leader>fc", function()
+    vim.keymap.set("n", "<leader>cf", function()
       builtin.find_files({
         cwd = vim.fn.stdpath("config"),
       })
