@@ -15,9 +15,9 @@ set $up k
 set $right l
 # Your preferred terminal emulator
 set $term ghostty 
-set $browser firefox
+set $browser brave-browser 
 # Your preferred application launcher
-set $menu wmenu-run
+set $menu rofi -show drun -m 0
 
 ### Output configuration
 
