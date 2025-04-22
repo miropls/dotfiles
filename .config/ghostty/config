@@ -1,10 +1,10 @@
 # Theme
-theme = lackluster 
+theme = nordic 
 
 # Window settings 
 window-decoration = false 
 window-theme = ghostty
-font-size = 15
+font-size = 18
 mouse-hide-while-typing = true
 
 # Updates
@@ -12,7 +12,7 @@ auto-update = check
 auto-update-channel = stable
 
 # Keybinds
-keybind = ctrl+r>r=reload_config
+keybind = alt+ctrl+y=reload_config
 
 # Clipboard
 keybind = alt+c=copy_to_clipboard

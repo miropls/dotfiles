@@ -2,6 +2,47 @@ return {
 	"neovim/nvim-lspconfig",
 	lazy = false,
 	version = "*",
+	keys = {
+		-- Native LSP bindings
+		{
+			"gh",
+			function()
+				vim.lsp.buf.hover({
+					border = "single",
+					max_width = math.floor(vim.o.columns * 0.8),
+					max_height = math.floor(vim.o.lines * 0.3),
+				})
+			end,
+			desc = "Hover",
+		},
+		{ "gl", vim.diagnostic.open_float, desc = "Hover error" },
+		{ "gD", vim.lsp.buf.declaration, desc = "Goto declaration" },
+		{ "ga", vim.lsp.buf.code_action, desc = "Code actions" },
+
+		-- Telescope lsp stuff
+		{ "gd", require("telescope.builtin").lsp_definitions, desc = "Goto definition" },
+		{ "gt", require("telescope.builtin").lsp_type_definitions, desc = "type_definition" },
+		{ "gr", require("telescope.builtin").lsp_references, desc = "references" },
+		{ "gi", require("telescope.builtin").lsp_implementations, desc = "Goto implementations" },
+
+		-- Diagnostics
+		{
+			"<leader>dd",
+			function() -- Buffer diagnostics
+				require("telescope.builtin").diagnostics({ bufnr = 0 })
+			end,
+			desc = "Buffer diagnostics",
+		},
+		{
+			"<leader>dw",
+			function()
+				require("telescope.builtin").diagnostics()
+			end,
+			desc = "Workspace diagnostics",
+		},
+
+		{ "<leader>ni", "<cmd>LspInfo<CR>", desc = "LspInfo" },
+	},
 	dependencies = {
 		"williamboman/mason.nvim",
 		"williamboman/mason-lspconfig.nvim",
@@ -30,7 +71,7 @@ return {
 			"saghen/blink.cmp",
 			lazy = false,
 			dependencies = "rafamadriz/friendly-snippets",
-			version = "v0.*",
+			version = "1.*",
 			---@module 'blink.cmp'
 			---@type blink.cmp.Config
 			opts = {
@@ -161,69 +202,16 @@ return {
 
 		vim.cmd([[au BufRead * lua docker_fix()]])
 
-		-- Keymaps for LSP actions
-		local builtin = require("telescope.builtin")
-
-		vim.api.nvim_create_autocmd({ "VimEnter", "VimResized" }, {
-			desc = "Setup LSP hover window",
-			callback = function()
-				local width = math.floor(vim.o.columns * 0.8)
-				local height = math.floor(vim.o.lines * 0.3)
-
-				vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-					border = "rounded",
-					max_width = width,
-					max_height = height,
-				})
-			end,
-		})
-		-- Native LSP bindings
-		vim.keymap.set("n", "gh", vim.lsp.buf.hover)
-		vim.keymap.set("n", "gl", vim.diagnostic.open_float)
-		vim.keymap.set("n", "gD", vim.lsp.buf.declaration)
-		vim.keymap.set("n", "ga", vim.lsp.buf.code_action)
-
-		-- Telescope builtins
-		vim.keymap.set("n", "gd", builtin.lsp_definitions, {})
-		vim.keymap.set("n", "gt", builtin.lsp_type_definitions, {})
-		vim.keymap.set("n", "gr", builtin.lsp_references, {})
-		vim.keymap.set("n", "gi", builtin.lsp_implementations, {})
-
-		-- Telescope diagnostics
-		vim.keymap.set("n", "<leader>dd", function() -- Buffer diagnostics
-			builtin.diagnostics({ bufnr = 0 })
-		end)
-		vim.keymap.set("n", "<leader>dw", builtin.diagnostics, {}) -- Workspace diagnostics
-
-		vim.keymap.set("n", "<leader>ni", "<cmd>LspInfo<CR>")
-
-		-- Sign column icons
-		local function set_sign_icons(opts)
-			opts = opts or {}
-
-			local sign = function(args)
-				if opts[args.name] == nil then
-					return
-				end
-
-				vim.fn.sign_define(args.hl, {
-					texthl = args.hl,
-					text = opts[args.name],
-					numhl = "",
-				})
-			end
-
-			sign({ name = "error", hl = "DiagnosticSignError" })
-			sign({ name = "warn", hl = "DiagnosticSignWarn" })
-			sign({ name = "hint", hl = "DiagnosticSignHint" })
-			sign({ name = "info", hl = "DiagnosticSignInfo" })
-		end
-
-		set_sign_icons({
-			error = "✘",
-			warn = "▲",
-			hint = "⚑",
-			info = "»",
+		-- Sign icons
+		vim.diagnostic.config({
+			signs = {
+				text = {
+					[vim.diagnostic.severity.ERROR] = "✘",
+					[vim.diagnostic.severity.WARN] = "▲",
+					[vim.diagnostic.severity.INFO] = "⚑",
+					[vim.diagnostic.severity.HINT] = "»",
+				},
+			},
 		})
 	end,
 }

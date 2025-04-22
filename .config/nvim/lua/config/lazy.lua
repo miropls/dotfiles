@@ -1,5 +1,5 @@
+-- Bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
 	local lazyrepo = "https://github.com/folke/lazy.nvim.git"
 	local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
@@ -17,17 +17,13 @@ vim.opt.rtp:prepend(lazypath)
 
 vim.g.mapleader = " "
 
--- Allow copy paste
-vim.api.nvim_set_keymap("", "<D-v>", "+p<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("!", "<D-v>", "<C-R>+", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("t", "<D-v>", "<C-R>+", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("v", "<D-v>", "<C-R>+", { noremap = true, silent = true })
-
 local o = vim.opt
 -- Vim opts
+o.showtabline = 1
 o.guicursor = ""
 o.nu = true
-o.relativenumber = false
+o.relativenumber = true
+o.cursorline = true
 o.ignorecase = true
 o.smartcase = true
 o.tabstop = 2
@@ -58,20 +54,35 @@ local opts = {
 		vim.keymap.set("n", "N", "Nzzzv"),
 
 		-- Yank to system clipboard
-		vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]]),
-		vim.keymap.set("n", "<leader>Y", [["+Y]]),
+		vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]], { desc = "Yank motion to clipboard" }),
+		vim.keymap.set("n", "<leader>Y", [["+Y]], { desc = "Yank line to clipboard" }),
+
+		-- Allow copy paste
+		vim.api.nvim_set_keymap("", "<D-v>", "+p<CR>", { noremap = true, silent = true }),
+		vim.api.nvim_set_keymap("!", "<D-v>", "<C-R>+", { noremap = true, silent = true }),
+		vim.api.nvim_set_keymap("t", "<D-v>", "<C-R>+", { noremap = true, silent = true }),
+		vim.api.nvim_set_keymap("v", "<D-v>", "<C-R>+", { noremap = true, silent = true }),
 
 		-- Bufferwide rename
-		vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]]),
+		vim.keymap.set(
+			"n",
+			"<leader>s",
+			[[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
+			{ desc = "Rename in buffer" }
+		),
 	},
 }
 
 -- Setup lazy.nvim
 require("lazy").setup({
 	spec = {
+		-- import your plugins
 		{ import = "plugins" },
 	},
+	-- Configure any other settings here. See the documentation for more details.
+	-- colorscheme that will be used when installing plugins.
 	install = { colorscheme = { "habamax" } },
+	-- automatically check for plugin updates
 	checker = { enabled = false },
 	opts = opts,
 })

@@ -1,7 +1,5 @@
-# Add deno completions to search path
-if [[ ":$FPATH:" != *":/home/miropls/.zsh/completions:"* ]]; then export FPATH="/home/miropls/.zsh/completions:$FPATH"; fi
-
 export ZSH="$HOME/.oh-my-zsh"
+export ZSH_CUSTOM="$ZSH/custom/plugins"
 
 export EDITOR="nvim"
 export VISUAL="$EDITOR"
@@ -13,20 +11,27 @@ plugins=(
     sudo
 )
 
+# Exports
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
-export DENO_INSTALL="/home/miropls/.deno"
-export PATH="$DENO_INSTALL/bin:$PATH"
 export PATH="$PATH:/usr/local/go/bin"
 export PATH="$PATH:/$HOME/go/bin"
-export PATH="$PATH:/$HOME/.composer/vendor/bin"
-export PATH="$PATH:/home/miropls/.turso"
 export PATH="$HOME/.local/bin:$PATH"
-export PATH="$HOME/odin:$PATH"
 
+# Android
+export ANDROID_HOME=$HOME/Android/Sdk 
+export PATH=$PATH:$ANDROID_HOME/emulator 
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+
+export PATH=$HOME/Repositories/Odin:$PATH
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Aliases
 alias nv="nvim"
 alias nv.="nvim ."
-alias hx.="hx ."
 alias cat="bat"
 alias pn="pnpm"
 alias gs="git status"
@@ -35,32 +40,7 @@ alias btd="bluetoothctl disconnect 38:18:4C:22:01:43"
 
 eval "$(zoxide init --cmd cd zsh)"
 
-source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $ZSH_CUSTOM/zsh-autosuggestions/zsh-autosuggestions.zsh
+source $ZSH_CUSTOM/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 source $ZSH/oh-my-zsh.sh
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-. "/home/miropls/.deno/env"
-
-# Initialize zsh completions (added by deno install script)
-autoload -Uz compinit
-compinit
-
-export PATH="/home/miropls/.config/herd-lite/bin:$PATH"
-export PHP_INI_SCAN_DIR="/home/miropls/.config/herd-lite/bin:$PHP_INI_SCAN_DIR"
-
-# bun completions
-[ -s "/home/miropls/.bun/_bun" ] && source "/home/miropls/.bun/_bun"
-
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
-
-export ANDROID_HOME=$HOME/Android/Sdk 
-export PATH=$PATH:$ANDROID_HOME/emulator 
-export PATH=$PATH:$ANDROID_HOME/platform-tools
-
-export HELIX_RUNTIME=~/Repositories/helix/runtime
-
-# eval "$(starship init zsh)"
-export PATH=$HOME/Repositories/Odin:$PATH
