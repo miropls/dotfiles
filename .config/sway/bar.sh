@@ -1,7 +1,7 @@
 while true
 do
-  date=$(date +'%A, %b %d')
-  time=$(date +'%I:%M:%S %p')
+  date=$(date +'%A, %x')
+  time=$(date +'%H:%M:%S %p')
   vol=$(pamixer --get-volume)
 
   echo "Vol: $vol% | $date | $time"
