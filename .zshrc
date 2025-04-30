@@ -44,3 +44,6 @@ source $ZSH_CUSTOM/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $ZSH_CUSTOM/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 source $ZSH/oh-my-zsh.sh
+
+# Turso
+export PATH="$PATH:/home/miropls/.turso"

@@ -5,7 +5,7 @@ theme = catppuccin-mocha
 background-opacity = 0.9
 window-decoration = false 
 window-theme = ghostty
-font-size = 18
+font-size = 16
 mouse-hide-while-typing = true
 
 # Updates

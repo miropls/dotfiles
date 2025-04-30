@@ -38,7 +38,7 @@ return {
 
     vim.keymap.set("n", "<leader>ff", require("telescope.builtin").find_files, { desc = "Files" })
     vim.keymap.set("n", "<leader>fg", require("telescope.builtin").git_files, { desc = "Git files" })
-    vim.keymap.set("n", "<leader>c",
+    vim.keymap.set("n", "<leader>fc",
       function() require("telescope.builtin").find_files({ cwd = vim.fn.stdpath("config"), }) end,
       { desc = "Open Neovim config", })
 

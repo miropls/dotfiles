@@ -181,7 +181,7 @@ bindsym $mod+plus exec pactl set-sink-volume \@DEFAULT_SINK@ +5%
 bindsym $mod+alt+shift+s exec grim -o $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name') $HOME/Screenshots/$(date +'%F-%H:%M.%S.png') 
 bindsym alt+shift+s exec grim -g "$(slurp)" $HOME/Screenshots/$(date +'%F-%H:%M.%S.png')
 bindsym $mod+alt+y exec swaylock -c 000000 & systemctl suspend
-bindsym $mod+alt+ctrl+shift+p exec sudo shutdown now
+bindsym $mod+alt+ctrl+shift+p exec shutdown now
 
 
 # # Colors:
