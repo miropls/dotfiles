@@ -163,7 +163,7 @@ return {
     require("mason-lspconfig").setup({
       ensure_installed = {
         "clangd",
-        "css-lsp",
+        "cssls",
         "docker_compose_language_service",
         "dockerls",
         "eslint",
@@ -174,7 +174,7 @@ return {
         "prettierd",
         "rust_analyzer",
         "tailwindcss",
-        "typescript-language-server",
+        "ts_ls",
         "vimls"
       },
       automatic_installation = true,
