@@ -6,17 +6,10 @@ return {
 			{ "nvim-lua/plenary.nvim", branch = "master" }, -- for curl, log and async functions
 		},
 		keys = {
-			{ "<leader>cp", "<cmd>CopilotChatPrompts<CR>", desc = "Prompts" },
-			{ "<leader>cm", "<cmd>CopilotChatModels<CR>", desc = "Models" },
-			{ "<leader>ca", "<cmd>CopilotChatAgents<CR>", desc = "Agents" },
-			{ "<leader>ct", "<cmd>CopilotChatToggle<CR>", desc = "Toggle" },
-			{
-				"<leader>cg",
-				function()
-					require("CopilotChat").complete_items()
-				end,
-				desc = "Toggle",
-			},
+			{ "<leader>ap", "<cmd>CopilotChatPrompts<CR>", desc = "Prompts" },
+			{ "<leader>am", "<cmd>CopilotChatModels<CR>", desc = "Models" },
+			{ "<leader>aa", "<cmd>CopilotChatAgents<CR>", desc = "Agents" },
+			{ "<leader>at", "<cmd>CopilotChatToggle<CR>", desc = "Toggle" },
 			{
 				"<A-C-n>",
 				function()

@@ -111,7 +111,7 @@ return {
 				{ mode = "n", keys = "<Leader>h", desc = "+Harpoon" },
 				{ mode = "n", keys = "<Leader>r", desc = "+Rename" },
 				{ mode = "n", keys = "<Leader>t", desc = "+Toggle" },
-				{ mode = "n", keys = "<Leader>c", desc = "+Copilot" },
+				{ mode = "n", keys = "<Leader>a", desc = "+AI" },
 				{ mode = "n", keys = "m", desc = "+Mini" },
 				miniclue.gen_clues.builtin_completion(),
 				miniclue.gen_clues.g(),
