@@ -45,6 +45,11 @@ o.signcolumn = "yes"
 o.isfname:append("@-@")
 o.updatetime = 50
 
+vim.keymap.del("n", "gra")
+vim.keymap.del("n", "grr")
+vim.keymap.del("n", "gri")
+vim.keymap.del("n", "grn")
+
 local opts = {
 	custom_keys = {
 		-- vim.keymap.set("n", "<leader>mm", vim.cmd.Ex),
