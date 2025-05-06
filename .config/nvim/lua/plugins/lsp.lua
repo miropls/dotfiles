@@ -116,15 +116,6 @@ return {
 					providers = {
 						lsp = { fallbacks = { "lazydev" } },
 						lazydev = { name = "LazyDev", module = "lazydev.integrations.blink" },
-						path = {
-							enabled = function()
-								if require("CopilotChat").chat:focused() then
-									return false
-								else
-									return true
-								end
-							end,
-						},
 					},
 					min_keyword_length = function(ctx)
 						if ctx.mode == "cmdline" then
