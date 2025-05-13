@@ -101,17 +101,18 @@ return {
 
 			clues = {
 				-- Enhance this by adding descriptions for <Leader> mapping groups
-				{ mode = "n", keys = "<Leader>f", desc = "+Find" },
+				{ mode = "n", keys = "<Leader>a", desc = "+AI" },
 				{ mode = "n", keys = "<Leader>d", desc = "+Diagnostics" },
+				{ mode = "n", keys = "<Leader>f", desc = "+Find" },
 				{ mode = "n", keys = "<Leader>g", desc = "+Git" },
 				{ mode = "n", keys = "<Leader>gg", desc = "+Telescope" },
 				{ mode = "n", keys = "<Leader>gs", desc = "+GitSigns" },
+				{ mode = "n", keys = "<Leader>h", desc = "+Harpoon" },
 				{ mode = "n", keys = "<Leader>m", desc = "+Filetree" },
 				{ mode = "n", keys = "<Leader>n", desc = "+LSP" },
-				{ mode = "n", keys = "<Leader>h", desc = "+Harpoon" },
+				{ mode = "n", keys = "<Leader>o", desc = "+Overseer" },
 				{ mode = "n", keys = "<Leader>r", desc = "+Rename" },
 				{ mode = "n", keys = "<Leader>t", desc = "+Toggle" },
-				{ mode = "n", keys = "<Leader>a", desc = "+AI" },
 				{ mode = "n", keys = "m", desc = "+Mini" },
 				miniclue.gen_clues.builtin_completion(),
 				miniclue.gen_clues.g(),

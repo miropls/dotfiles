@@ -53,8 +53,8 @@ vim.keymap.del("n", "grn")
 local opts = {
 	custom_keys = {
 		-- vim.keymap.set("n", "<leader>mm", vim.cmd.Ex),
-		vim.keymap.set("n", "<C-d>", "<C-d>zz"),
-		vim.keymap.set("n", "<C-u>", "<C-u>zz"),
+		-- vim.keymap.set("n", "<C-d>", "<C-d>zz"),
+		-- vim.keymap.set("n", "<C-u>", "<C-u>zz"),
 		vim.keymap.set("n", "n", "nzzzv"),
 		vim.keymap.set("n", "N", "Nzzzv"),
 
