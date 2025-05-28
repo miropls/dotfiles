@@ -1,12 +1,10 @@
 return {
-  "catppuccin/nvim",
-  lazy = false,
-  priority = 1000,
+  "vague2k/vague.nvim",
   config = function()
-    require("catppuccin").setup({
-      transparent_background = true
+    -- NOTE: you do not need to call setup if you don't want to.
+    require("vague").setup({
+      transparent = true
     })
-
-    vim.cmd.colorscheme("catppuccin-mocha")
+    vim.cmd.colorscheme("vague")
   end,
 }
