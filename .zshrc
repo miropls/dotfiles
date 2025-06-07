@@ -32,6 +32,8 @@ export NVM_DIR="$HOME/.nvm"
 # Aliases
 alias nv="nvim"
 alias nv.="nvim ."
+alias hx.="hx ."
+alias lg="lazygit"
 alias cat="bat"
 alias pn="pnpm"
 alias gs="git status"

@@ -8,6 +8,7 @@ auto-format = true
 auto-completion = true
 auto-info = true
 end-of-line-diagnostics = "hint"
+popup-border = "all"
 
 [editor.search]
 smart-case = true
