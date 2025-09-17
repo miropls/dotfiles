@@ -1,10 +1,8 @@
 return {
-	"vague2k/vague.nvim",
+	"catppuccin/nvim",
 	config = function()
 		-- NOTE: you do not need to call setup if you don't want to.
-		require("vague").setup({
-			transparent = true,
-		})
-		vim.cmd.colorscheme("vague")
+		require("catppuccin").setup()
+		vim.cmd.colorscheme("catppuccin-mocha")
 	end,
 }
