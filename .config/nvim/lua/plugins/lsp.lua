@@ -109,8 +109,11 @@ return {
 					preset = "super-tab",
 					["<CR>"] = {
 						function(cmp)
-							cmp.accept()
+							if cmp.is_menu_visible() then
+								cmp.accept()
+							end
 						end,
+						"fallback",
 					},
 				},
 				cmdline = {
