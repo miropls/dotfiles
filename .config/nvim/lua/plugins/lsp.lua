@@ -106,15 +106,7 @@ return {
 				-- see the "default configuration" section below for full documentation on how to define
 				-- your own keymap.
 				keymap = {
-					preset = "super-tab",
-					["<CR>"] = {
-						function(cmp)
-							if cmp.is_menu_visible() then
-								cmp.accept()
-							end
-						end,
-						"fallback",
-					},
+					preset = "enter",
 				},
 				cmdline = {
 					keymap = {
