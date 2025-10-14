@@ -3,7 +3,7 @@ theme = catppuccin-mocha
 
 # Window settings 
 # background-opacity = 0.9
-window-decoration = true
+window-decoration = false 
 window-theme = ghostty
 mouse-hide-while-typing = true
 
