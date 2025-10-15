@@ -15,62 +15,28 @@ return {
 			end,
 			desc = "Hover",
 		},
-		{
-			"gd",
-			function()
-				require("mini.extra").pickers.lsp({ scope = "definition" })
-			end,
-			desc = "Goto definition",
-		},
-		{
-			"gt",
-			function()
-				require("mini.extra").pickers.lsp({ scope = "type_definition" })
-			end,
-			desc = "Type_definition",
-		},
-		{
-			"gr",
-			function()
-				require("mini.extra").pickers.lsp({ scope = "references" })
-			end,
-			desc = "References",
-		},
-		{
-			"gi",
-			function()
-				require("mini.extra").pickers.lsp({ scope = "implementation" })
-			end,
-			desc = "Goto implementations",
-		},
 		{ "gl", vim.diagnostic.open_float, desc = "Hover error" },
-		{
-			"gD",
-			function()
-				require("mini.extra").pickers.lsp({ scope = "declaration" })
-			end,
-			desc = "Goto declaration",
-		},
-		{
-			"ga",
-			function()
-				require("mini.pick").start({ source = vim.lsp.buf.code_action() })
-			end,
-			desc = "Code actions",
-		},
+		{ "gD", vim.lsp.buf.declaration, desc = "Goto declaration" },
+		{ "ga", vim.lsp.buf.code_action, desc = "Code actions" },
+
+		-- Telescope lsp stuff
+		{ "gd", require("telescope.builtin").lsp_definitions, desc = "Goto definition" },
+		{ "gt", require("telescope.builtin").lsp_type_definitions, desc = "Type_definition" },
+		{ "gr", require("telescope.builtin").lsp_references, desc = "References" },
+		{ "gi", require("telescope.builtin").lsp_implementations, desc = "Goto implementations" },
 
 		-- Diagnostics
 		{
 			"<leader>dd",
 			function() -- Buffer diagnostics
-				require("mini.extra").pickers.diagnostic(nil, { scope = "current" })
+				require("telescope.builtin").diagnostics({ bufnr = 0 })
 			end,
 			desc = "Buffer diagnostics",
 		},
 		{
 			"<leader>dw",
-			function() -- Buffer diagnostics
-				require("mini.extra").pickers.diagnostic(nil, { scope = "all" })
+			function()
+				require("telescope.builtin").diagnostics()
 			end,
 			desc = "Workspace diagnostics",
 		},
@@ -91,7 +57,16 @@ return {
 				},
 			},
 		},
-		"smjonas/inc-rename.nvim",
+		{
+			"windwp/nvim-ts-autotag",
+			config = true,
+		},
+		{
+			"windwp/nvim-autopairs",
+			event = "InsertEnter",
+			config = true,
+		},
+		-- Autocompletion
 		{
 			"saghen/blink.cmp",
 			lazy = false,
@@ -116,7 +91,7 @@ return {
 								if not cmp.is_menu_visible() then
 									cmp.show()
 								else
-									cmp.accept()
+									cmp.select_next()
 								end
 							end,
 						},
@@ -170,6 +145,9 @@ return {
 			},
 			opts_extend = { "sources.default" },
 		},
+		{
+			"onsails/lspkind.nvim",
+		},
 	},
 	config = function()
 		require("mason").setup()
@@ -192,13 +170,6 @@ return {
 			},
 			automatic_enable = true,
 		})
-
-		-- Rename
-		require("inc_rename").setup({})
-
-		vim.keymap.set("n", "<leader>rn", function()
-			return ":IncRename " .. vim.fn.expand("<cword>")
-		end, { expr = true, desc = "Rename" })
 
 		-- for reasons unknown
 		function docker_fix()

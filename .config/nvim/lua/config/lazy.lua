@@ -18,7 +18,6 @@ vim.opt.rtp:prepend(lazypath)
 vim.g.mapleader = " "
 
 local o = vim.opt
-
 -- Vim opts
 o.showtabline = 1
 o.guicursor = ""
@@ -54,6 +53,9 @@ vim.keymap.del("n", "grt")
 
 local opts = {
 	custom_keys = {
+		-- vim.keymap.set("n", "<leader>mm", vim.cmd.Ex),
+		-- vim.keymap.set("n", "<C-d>", "<C-d>zz"),
+		-- vim.keymap.set("n", "<C-u>", "<C-u>zz"),
 		vim.keymap.set("n", "n", "nzzzv"),
 		vim.keymap.set("n", "N", "Nzzzv"),
 
@@ -62,13 +64,18 @@ local opts = {
 		vim.keymap.set("n", "<leader>Y", [["+Y]], { desc = "Yank line to clipboard" }),
 
 		-- Allow copy paste
-		vim.keymap.set("", "<D-v>", "+p<CR>", { noremap = true, silent = true }),
-		vim.keymap.set("!", "<D-v>", "<C-R>+", { noremap = true, silent = true }),
-		vim.keymap.set("t", "<D-v>", "<C-R>+", { noremap = true, silent = true }),
-		vim.keymap.set("v", "<D-v>", "<C-R>+", { noremap = true, silent = true }),
+		vim.api.nvim_set_keymap("", "<D-v>", "+p<CR>", { noremap = true, silent = true }),
+		vim.api.nvim_set_keymap("!", "<D-v>", "<C-R>+", { noremap = true, silent = true }),
+		vim.api.nvim_set_keymap("t", "<D-v>", "<C-R>+", { noremap = true, silent = true }),
+		vim.api.nvim_set_keymap("v", "<D-v>", "<C-R>+", { noremap = true, silent = true }),
 
-		vim.keymap.set("n", "<leader>ca", ":vimgrep ", { desc = "Grep to quickfix list" }),
-		vim.keymap.set("n", "<leader>cr", ":lvimgrep ", { desc = "Grep to location-list" }),
+		-- Bufferwide rename
+		vim.keymap.set(
+			"n",
+			"<leader>s",
+			[[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
+			{ desc = "Rename in buffer" }
+		),
 	},
 }
 
