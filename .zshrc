@@ -50,3 +50,12 @@ source $ZSH/oh-my-zsh.sh
 
 # Turso
 export PATH="$PATH:/home/miropls/.turso"
+
+# bun completions
+[ -s "/Users/paintmi/.bun/_bun" ] && source "/Users/paintmi/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+source ~/.safe-chain/scripts/init-posix.sh # Safe-chain Zsh initialization script

@@ -64,18 +64,13 @@ local opts = {
 		vim.keymap.set("n", "<leader>Y", [["+Y]], { desc = "Yank line to clipboard" }),
 
 		-- Allow copy paste
-		vim.api.nvim_set_keymap("", "<D-v>", "+p<CR>", { noremap = true, silent = true }),
-		vim.api.nvim_set_keymap("!", "<D-v>", "<C-R>+", { noremap = true, silent = true }),
-		vim.api.nvim_set_keymap("t", "<D-v>", "<C-R>+", { noremap = true, silent = true }),
-		vim.api.nvim_set_keymap("v", "<D-v>", "<C-R>+", { noremap = true, silent = true }),
+		vim.keymap.set("", "<D-v>", "+p<CR>", { noremap = true, silent = true }),
+		vim.keymap.set("!", "<D-v>", "<C-R>+", { noremap = true, silent = true }),
+		vim.keymap.set("t", "<D-v>", "<C-R>+", { noremap = true, silent = true }),
+		vim.keymap.set("v", "<D-v>", "<C-R>+", { noremap = true, silent = true }),
 
-		-- Bufferwide rename
-		vim.keymap.set(
-			"n",
-			"<leader>s",
-			[[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
-			{ desc = "Rename in buffer" }
-		),
+		vim.keymap.set("n", "<leader>ca", ":vimgrep ", { desc = "Grep to quickfix list" }),
+		vim.keymap.set("n", "<leader>cr", ":lvimgrep ", { desc = "Grep to location-list" }),
 	},
 }
 

@@ -51,5 +51,7 @@ return {
 		vim.keymap.set("n", "<leader>ggb", require("telescope.builtin").git_branches, { desc = "Branches" })
 		vim.keymap.set("n", "<leader>ggs", require("telescope.builtin").git_status, { desc = "Status" })
 		vim.keymap.set("n", "<leader>ggt", require("telescope.builtin").git_stash, { desc = "Stash" })
+
+		vim.keymap.set("n", "<leader>co", require("telescope.builtin").quickfix)
 	end,
 }
