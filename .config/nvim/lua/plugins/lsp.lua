@@ -8,7 +8,7 @@ return {
 			"gh",
 			function()
 				vim.lsp.buf.hover({
-					border = "single",
+					border = "rounded",
 					max_width = math.floor(vim.o.columns * 0.8),
 					-- max_height = math.floor(vim.o.lines * 0.3),
 				})
@@ -181,17 +181,5 @@ return {
 		end
 
 		vim.cmd([[au BufRead * lua docker_fix()]])
-
-		-- Sign icons
-		vim.diagnostic.config({
-			signs = {
-				text = {
-					[vim.diagnostic.severity.ERROR] = "✘",
-					[vim.diagnostic.severity.WARN] = "▲",
-					[vim.diagnostic.severity.INFO] = "⚑",
-					[vim.diagnostic.severity.HINT] = "»",
-				},
-			},
-		})
 	end,
 }
