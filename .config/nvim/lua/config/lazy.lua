@@ -44,6 +44,7 @@ o.scrolloff = 8
 o.signcolumn = "yes"
 o.isfname:append("@-@")
 o.updatetime = 50
+o.winborder = "rounded"
 
 vim.keymap.del("n", "gra")
 vim.keymap.del("n", "grr")
