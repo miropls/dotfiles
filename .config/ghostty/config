@@ -49,6 +49,7 @@ keybind = ctrl+up=goto_split:top
 keybind = ctrl+down=goto_split:bottom
 keybind = ctrl+shift+e=equalize_splits
 keybind = ctrl+f=toggle_split_zoom 
+keybind = shift+escape=toggle_split_zoom 
 
 # Misc
 keybind = global:cmd+-=toggle_quick_terminal
