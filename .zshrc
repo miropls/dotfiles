@@ -40,6 +40,7 @@ alias gs="git status"
 alias btp="bluetoothctl pair 38:18:4C:22:01:43"
 alias btc="bluetoothctl connect 38:18:4C:22:01:43"
 alias btd="bluetoothctl disconnect 38:18:4C:22:01:43"
+alias oc="opencode"
 
 eval "$(zoxide init --cmd cd zsh)"
 
