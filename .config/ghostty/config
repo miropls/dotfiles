@@ -16,6 +16,7 @@ keybind = alt+ctrl+y=reload_config
 macos-option-as-alt = left
 
 # Clipboard
+copy-on-select = clipboard
 keybind = alt+c=copy_to_clipboard
 keybind = alt+v=paste_from_clipboard
 
