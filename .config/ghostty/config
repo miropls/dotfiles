@@ -21,9 +21,9 @@ keybind = alt+c=copy_to_clipboard
 keybind = alt+v=paste_from_clipboard
 
 # Font
-# font-family = Iosevka Nerd Font
-font-family = JetBrainsMono Nerd Font Mono
-font-size = 20
+font-family = Iosevka Nerd Font
+# font-family = JetBrainsMono Nerd Font Mono
+font-size = 22
 keybind = alt+plus=increase_font_size:1
 keybind = alt+minus=decrease_font_size:1
 keybind = alt+0=reset_font_size

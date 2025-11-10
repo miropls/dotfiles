@@ -43,7 +43,19 @@ return {
 		{ "<leader>ni", "<cmd>LspInfo<CR>", desc = "LspInfo" },
 	},
 	dependencies = {
-		"mason-org/mason.nvim",
+		{
+			"mason-org/mason.nvim",
+			config = function()
+				require("mason").setup({
+					registries = {
+						"github:mason-org/mason-registry",
+						"github:Crashdummyy/mason-registry",
+					},
+				})
+
+				vim.lsp.config("roslyn", {})
+			end,
+		},
 		"mason-org/mason-lspconfig.nvim",
 		{
 			"folke/lazydev.nvim",
