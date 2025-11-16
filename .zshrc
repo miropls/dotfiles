@@ -45,6 +45,9 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
+# Cargo
+export PATH="$PATH:$HOME/.cargo/bin"
+
 
 # Completions
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
@@ -54,6 +57,7 @@ export NVM_DIR="$HOME/.nvm"
 alias nv="nvim"
 alias nv.="nvim ."
 alias lg="lazygit"
+alias gs="git status"
 alias pn="pnpm"
 alias oc="opencode"
 
@@ -62,3 +66,4 @@ eval "$(zoxide init zsh)"
 
 source $ZSH/oh-my-zsh.sh
 source ~/.safe-chain/scripts/init-posix.sh # Safe-chain Zsh initialization script
+eval "$(zellij setup --generate-auto-start zsh)"

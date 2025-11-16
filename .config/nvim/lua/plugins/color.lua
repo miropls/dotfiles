@@ -1,11 +1,11 @@
 return {
-	"folke/tokyonight.nvim",
+	"catppuccin/nvim",
+	name = "catppuccin",
 	config = function()
-		-- NOTE: you do not need to call setup if you don't want to.
-		require("tokyonight").setup({
-			style = "night",
-			transparent = true,
+		require("catppuccin").setup({
+			flavour = "mocha",
+			transparent_background = true,
 		})
-		vim.cmd.colorscheme("tokyonight")
+		vim.cmd.colorscheme("catppuccin")
 	end,
 }
