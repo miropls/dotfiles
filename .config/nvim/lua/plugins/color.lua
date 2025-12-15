@@ -1,11 +1,14 @@
 return {
-	"catppuccin/nvim",
-	name = "catppuccin",
+	"AlexvZyl/nordic.nvim",
+	name = "nordic",
 	config = function()
-		require("catppuccin").setup({
-			flavour = "mocha",
-			transparent_background = true,
+		require("nordic").setup({
+			transparent = {
+				bg = true,
+				float = true,
+			},
+			swap_backgrounds = true,
 		})
-		vim.cmd.colorscheme("catppuccin")
+		vim.cmd.colorscheme("nordic")
 	end,
 }

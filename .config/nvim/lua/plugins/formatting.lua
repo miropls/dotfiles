@@ -15,7 +15,7 @@ return {
 			typescript = { "biome", "prettierd", "prettier", stop_after_first = true },
 			javascriptreact = { "biome", "prettierd", "prettier", stop_after_first = true },
 			typescriptreact = { "biome", "prettierd", "prettier", stop_after_first = true },
-			astro = { "biome", "prettierd", "prettier", stop_after_first = true },
+			astro = { "prettierd", "prettier", stop_after_first = true },
 			svelte = { "biome", "prettierd", "prettier", stop_after_first = true },
 			vue = { "biome", "prettierd", "prettier", stop_after_first = true },
 			css = { "biome", "prettierd", "prettier", stop_after_first = true },

@@ -39,6 +39,20 @@ return {
 			end,
 			desc = "Workspace diagnostics",
 		},
+		{
+			"<leader>dn",
+			function()
+				vim.diagnostic.jump({ count = 1, float = true })
+			end,
+			desc = "Go to next diagnostic",
+		},
+		{
+			"<leader>dp",
+			function()
+				vim.diagnostic.jump({ count = -1, float = true })
+			end,
+			desc = "Go to prev diagnostic",
+		},
 
 		{ "<leader>ni", "<cmd>LspInfo<CR>", desc = "LspInfo" },
 	},
@@ -123,7 +137,7 @@ return {
 					nerd_font_variant = "mono",
 				},
 				sources = {
-					default = { "lsp", "path", "snippets", "buffer", "lazydev", "omni" },
+					default = { "lsp", "path", "snippets", "buffer", "lazydev" },
 					providers = {
 						lsp = { fallbacks = { "lazydev" } },
 						lazydev = { name = "LazyDev", module = "lazydev.integrations.blink" },

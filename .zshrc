@@ -1,6 +1,7 @@
 export ZSH="$HOME/.oh-my-zsh"
 export EDITOR="nvim"
 export VISUAL="$EDITOR"
+export DOTNET_ROOT="$(dirname $(which dotnet))"
 
 if [[ ! -d "$ZSH" ]]; then
   eval "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
@@ -24,6 +25,7 @@ plugins=(
 )
 
 # Exports
+export XDG_CONFIG_HOME="$HOME/.config"
 
 # Go
 export PATH="$PATH:/usr/local/go/bin"
@@ -60,10 +62,22 @@ alias lg="lazygit"
 alias gs="git status"
 alias pn="pnpm"
 alias oc="opencode"
+alias lsql="lazysql"
+alias zel="zellij"
+
 
 # Evaluations and sourcing
 eval "$(zoxide init zsh)"
 
 source $ZSH/oh-my-zsh.sh
 source ~/.safe-chain/scripts/init-posix.sh # Safe-chain Zsh initialization script
-eval "$(zellij setup --generate-auto-start zsh)"
+# eval "$(zellij setup --generate-auto-start zsh)"
+# The following lines have been added by Docker Desktop to enable Docker CLI completions.
+fpath=(/Users/paintmi/.docker/completions $fpath)
+autoload -Uz compinit
+compinit
+# End of Docker CLI completions
+
+# bun completions
+[ -s "/Users/paintmi/.bun/_bun" ] && source "/Users/paintmi/.bun/_bun"
+export AWS_PROFILE=agent47
