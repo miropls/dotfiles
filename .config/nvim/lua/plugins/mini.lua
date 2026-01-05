@@ -31,29 +31,29 @@ return {
 		require("mini.comment").setup()
 		require("mini.align").setup({
 			mappings = {
-				start = "ma",
-				start_with_preview = "mA",
+				start = "ga",
+				start_with_preview = "gA",
 			},
 		})
 		require("mini.splitjoin").setup({
 			mappings = {
-				toggle = "mS",
+				toggle = "gS",
 			},
 		})
 
 		require("mini.move").setup({
 			mappings = {
 				-- Move visual selection in Visual mode. Defaults are Alt (Meta) + hjkl.
-				left = "<M-Left>",
-				down = "<M-Down>",
-				up = "<M-Up>",
-				right = "<M-Right>",
+				left = "<C-m>",
+				down = "<C-n>",
+				up = "<C-e>",
+				right = "<C-i>",
 
 				-- Move current line in Normal mode
-				line_left = "<M-Left>",
-				line_down = "<M-Down>",
-				line_up = "<M-Up>",
-				line_right = "<M-Right>",
+				line_left = "<C-m>",
+				line_down = "<C-n>",
+				line_up = "<C-e>",
+				line_right = "<C-i>",
 			},
 		})
 

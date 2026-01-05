@@ -1,5 +1,5 @@
 export ZSH="$HOME/.oh-my-zsh"
-export EDITOR="nvim"
+export EDITOR="hx"
 export VISUAL="$EDITOR"
 export DOTNET_ROOT="$(dirname $(which dotnet))"
 
@@ -26,6 +26,8 @@ plugins=(
 
 # Exports
 export XDG_CONFIG_HOME="$HOME/.config"
+export PATH="$PATH:/Users/paintmi/Library/Application Support/JetBrains/Toolbox/scripts"
+export PATH="$PATH:/opt/homebrew/bin"
 
 # Go
 export PATH="$PATH:/usr/local/go/bin"
@@ -50,6 +52,10 @@ export NVM_DIR="$HOME/.nvm"
 # Cargo
 export PATH="$PATH:$HOME/.cargo/bin"
 
+# Claude
+export CLAUDE_CODE_USE_BEDROCK=1
+export AWS_REGION="eu-central-1"
+export ANTHROPIC_MODEL="eu.anthropic.claude-sonnet-4-5-20250929-v1:0" 
 
 # Completions
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
@@ -78,6 +84,4 @@ autoload -Uz compinit
 compinit
 # End of Docker CLI completions
 
-# bun completions
-[ -s "/Users/paintmi/.bun/_bun" ] && source "/Users/paintmi/.bun/_bun"
 export AWS_PROFILE=agent47

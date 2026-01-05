@@ -35,24 +35,25 @@ return {
 
 		require("telescope").load_extension("fzf")
 		require("telescope").load_extension("ui-select")
+		local km = vim.keymap.set
 
-		vim.keymap.set("n", "<leader>ff", require("telescope.builtin").find_files, { desc = "Files" })
-		vim.keymap.set("n", "<leader>fg", require("telescope.builtin").git_files, { desc = "Git files" })
-		vim.keymap.set("n", "<leader>fh", require("telescope.builtin").help_tags, { desc = "Git files" })
-		vim.keymap.set("n", "<leader>fc", function()
+		km("n", "<leader>ff", require("telescope.builtin").find_files, { desc = "Files" })
+		km("n", "<leader>fg", require("telescope.builtin").git_files, { desc = "Git files" })
+		km("n", "<leader>fh", require("telescope.builtin").help_tags, { desc = "Git files" })
+		km("n", "<leader>fc", function()
 			require("telescope.builtin").find_files({ cwd = vim.fn.stdpath("config") })
 		end, { desc = "Open Neovim config" })
 
-		vim.keymap.set("n", "<leader>p", function()
+		km("n", "<leader>p", function()
 			require("telescope.builtin").live_grep(require("telescope.themes"))
 		end, { desc = "Fuzzy search" })
 
 		-- git
-		vim.keymap.set("n", "<leader>ggc", require("telescope.builtin").git_commits, { desc = "Commits" })
-		vim.keymap.set("n", "<leader>ggb", require("telescope.builtin").git_branches, { desc = "Branches" })
-		vim.keymap.set("n", "<leader>ggs", require("telescope.builtin").git_status, { desc = "Status" })
-		vim.keymap.set("n", "<leader>ggt", require("telescope.builtin").git_stash, { desc = "Stash" })
+		km("n", "<leader>ggc", require("telescope.builtin").git_commits, { desc = "Commits" })
+		km("n", "<leader>ggb", require("telescope.builtin").git_branches, { desc = "Branches" })
+		km("n", "<leader>ggs", require("telescope.builtin").git_status, { desc = "Status" })
+		km("n", "<leader>ggt", require("telescope.builtin").git_stash, { desc = "Stash" })
 
-		vim.keymap.set("n", "<leader>co", require("telescope.builtin").quickfix)
+		km("n", "<leader>co", require("telescope.builtin").quickfix)
 	end,
 }

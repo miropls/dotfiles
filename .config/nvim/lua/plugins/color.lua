@@ -1,14 +1,10 @@
 return {
-	"AlexvZyl/nordic.nvim",
-	name = "nordic",
+	"folke/tokyonight.nvim",
+	lazy = false,
 	config = function()
-		require("nordic").setup({
-			transparent = {
-				bg = true,
-				float = true,
-			},
-			swap_backgrounds = true,
+		require("tokyonight").setup({
+			transparent = true,
 		})
-		vim.cmd.colorscheme("nordic")
+		vim.cmd.colorscheme("tokyonight-night")
 	end,
 }
