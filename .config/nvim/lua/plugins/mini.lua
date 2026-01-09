@@ -5,6 +5,14 @@ return {
 		-- Appereance
 		require("mini.notify").setup()
 		require("mini.icons").setup()
+		require("mini.cmdline").setup({
+			autocomplete = {
+				enable = true,
+			},
+			autopeek = {
+				enable = true,
+			},
+		})
 
 		-- Text manipulation
 		require("mini.ai").setup()
