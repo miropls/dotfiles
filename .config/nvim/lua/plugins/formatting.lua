@@ -2,11 +2,28 @@ return {
 	"stevearc/conform.nvim",
 	event = { "BufWritePre" },
 	cmd = { "ConformInfo" },
+	config = function(_, opts)
+		require("conform").setup(opts)
+
+		vim.api.nvim_create_user_command("FormatToggle", function(args)
+			if args.bang then
+				-- Buffer-local toggle
+				vim.b.disable_autoformat = not vim.b.disable_autoformat
+			else
+				-- Global toggle
+				vim.g.disable_autoformat = not vim.g.disable_autoformat
+			end
+		end, {
+			desc = "Toggle autoformatting",
+			bang = true,
+		})
+	end,
 	keys = {
-		{ "<leader>tf", vim.cmd.FormatToggle, desc = "Formatting" },
+		{ "<leader>tf", "<cmd>FormatToggle<CR>", desc = "Toggle Formatting" },
 	},
 	opts = {
-		log_level = vim.log.levels.DEBUG,
+		-- I've set the log level to WARN to be less verbose
+		log_level = vim.log.levels.WARN,
 		formatters_by_ft = {
 			c = { "clangd" },
 			lua = { "stylua" },
@@ -27,34 +44,11 @@ return {
 			sql = { "sql-formatter" },
 			php = { "pint", "php_cs_fixer" },
 		},
-
 		format_on_save = function(bufnr)
-			-- Disable with a global or buffer-local variable
 			if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
 				return
 			end
 			return { timeout_ms = 1500, lsp_fallback = true }
 		end,
-
-		-- Create command to toggle autoformatting on or off
-		vim.api.nvim_create_user_command("FormatToggle", function(args)
-			if args.bang then
-				-- FormatDisable! will disable formatting just for this buffer
-				if vim.b.disable_autoformat == true then
-					vim.b.disable_autoformat = false
-				else
-					vim.b.disable_autoformat = true
-				end
-			else
-				if vim.g.disable_autoformat == true then
-					vim.g.disable_autoformat = false
-				else
-					vim.g.disable_autoformat = true
-				end
-			end
-		end, {
-			desc = "Toggle autoformatting",
-			bang = true,
-		}),
 	},
 }

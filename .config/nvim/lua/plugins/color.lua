@@ -1,14 +1,12 @@
 return {
-	"AlexvZyl/nordic.nvim",
-	name = "nordic",
+	"blazkowolf/gruber-darker.nvim",
+	name = "gruber-darker",
+	lazy = false,
+	priority = 1000,
 	config = function()
-		require("nordic").setup({
-			transparent = {
-				bg = true,
-				float = true,
-			},
-			swap_backgrounds = true,
+		require("gruber-darker").setup({
+			transparent = true,
 		})
-		vim.cmd.colorscheme("nordic")
+		vim.cmd.colorscheme("gruber-darker")
 	end,
 }

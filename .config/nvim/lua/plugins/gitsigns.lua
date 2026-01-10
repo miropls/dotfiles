@@ -1,17 +1,15 @@
 return {
 	"lewis6991/gitsigns.nvim",
-	lazy = false,
+	event = "VeryLazy",
 	keys = {
-		{ "<leader>gsp", "<CMD>Gitsigns preview_hunk<CR>", desc = "Preview hunk" },
-		{ "<leader>gsi", "<CMD>Gitsigns preview_hunk_inline<CR>", desc = "Preview hunk inline" },
-		{ "<leader>gss", "<CMD>Gitsigns stage_hunk<CR>", desc = "Stage hunk" },
+		{ "<leader>gsp", "<cmd>Gitsigns preview_hunk<cr>", desc = "Preview hunk" },
+		{ "<leader>gsi", "<cmd>Gitsigns preview_hunk_inline<cr>", desc = "Preview hunk inline" },
+		{ "<leader>gss", "<cmd>Gitsigns stage_hunk<cr>", desc = "Stage hunk" },
 	},
-	config = function()
-		require("gitsigns").setup({
-			current_line_blame = true,
-			current_line_blame_opts = {
-				virt_text_pos = "eol",
-			},
-		})
-	end,
+	opts = {
+		current_line_blame = true,
+		current_line_blame_opts = {
+			virt_text_pos = "eol",
+		},
+	},
 }

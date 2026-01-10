@@ -1,33 +1,49 @@
 return {
 	"neovim/nvim-lspconfig",
-	lazy = false,
+	event = "VeryLazy",
 	version = "*",
 	keys = {
-		-- Native LSP bindings
 		{
 			"gh",
 			function()
-				vim.lsp.buf.hover({
-					max_width = math.floor(vim.o.columns * 0.8),
-					-- max_height = math.floor(vim.o.lines * 0.3),
-				})
+				vim.lsp.buf.hover({ max_width = math.floor(vim.o.columns * 0.8) })
 			end,
 			desc = "Hover",
 		},
 		{ "gl", vim.diagnostic.open_float, desc = "Hover error" },
 		{ "gD", vim.lsp.buf.declaration, desc = "Goto declaration" },
 		{ "ga", vim.lsp.buf.code_action, desc = "Code actions" },
-
-		-- Telescope lsp stuff
-		{ "gd", require("telescope.builtin").lsp_definitions, desc = "Goto definition" },
-		{ "gt", require("telescope.builtin").lsp_type_definitions, desc = "Type_definition" },
-		{ "gr", require("telescope.builtin").lsp_references, desc = "References" },
-		{ "gi", require("telescope.builtin").lsp_implementations, desc = "Goto implementations" },
-
-		-- Diagnostics
+		{
+			"gd",
+			function()
+				require("telescope.builtin").lsp_definitions()
+			end,
+			desc = "Goto definition",
+		},
+		{
+			"gt",
+			function()
+				require("telescope.builtin").lsp_type_definitions()
+			end,
+			desc = "Type_definition",
+		},
+		{
+			"gr",
+			function()
+				require("telescope.builtin").lsp_references()
+			end,
+			desc = "References",
+		},
+		{
+			"gi",
+			function()
+				require("telescope.builtin").lsp_implementations()
+			end,
+			desc = "Goto implementations",
+		},
 		{
 			"<leader>dd",
-			function() -- Buffer diagnostics
+			function()
 				require("telescope.builtin").diagnostics({ bufnr = 0 })
 			end,
 			desc = "Buffer diagnostics",
@@ -53,129 +69,90 @@ return {
 			end,
 			desc = "Go to prev diagnostic",
 		},
-
 		{ "<leader>ni", "<cmd>LspInfo<CR>", desc = "LspInfo" },
 	},
 	dependencies = {
 		{
 			"mason-org/mason.nvim",
-			config = function()
-				require("mason").setup({
-					registries = {
-						"github:mason-org/mason-registry",
-						"github:Crashdummyy/mason-registry",
-					},
-				})
-
-				vim.lsp.config("roslyn", {})
-			end,
+			opts = {
+				registries = {
+					"github:mason-org/mason-registry",
+					"github:Crashdummyy/mason-registry",
+				},
+			},
 		},
 		"mason-org/mason-lspconfig.nvim",
 		{
+			"hrsh7th/cmp-nvim-lsp",
+			dependencies = { "hrsh7th/nvim-cmp" },
+		},
+		{
 			"folke/lazydev.nvim",
 			ft = "lua",
-			opts = {
-				library = {
-					-- See the configuration section for more details
-					-- Load luvit types when the `vim.uv` word is found
-					{ path = "${3rd}/luv/library", words = { "vim%.uv" } },
-				},
-			},
+			opts = { library = { { path = "${3rd}/luv/library", words = { "vim%.uv" } } } },
 		},
-		{
-			"windwp/nvim-ts-autotag",
-			config = true,
-		},
-		{
-			"windwp/nvim-autopairs",
-			event = "InsertEnter",
-			config = true,
-		},
-		-- Autocompletion
+		{ "windwp/nvim-ts-autotag", event = "VeryLazy", config = true },
+		{ "windwp/nvim-autopairs", event = "InsertEnter", config = true },
 		{
 			"saghen/blink.cmp",
-			lazy = false,
+			event = "InsertEnter",
 			dependencies = "rafamadriz/friendly-snippets",
 			version = "1.*",
-			---@module 'blink.cmp'
-			---@type blink.cmp.Config
-			opts = {
-				-- 'default' for mappings similar to built-in completion
-				-- 'super-tab' for mappings similar to vscode (tab to accept, arrow keys to navigate)
-				-- 'enter' for mappings similar to 'super-tab' but with 'enter' to accept
-				-- see the "default configuration" section below for full documentation on how to define
-				-- your own keymap.
-				keymap = {
-					preset = "enter",
-				},
-				cmdline = {
-					keymap = {
-						preset = "enter",
-						["<Tab>"] = {
-							function(cmp)
-								if not cmp.is_menu_visible() then
-									cmp.show()
-								else
-									cmp.select_next()
-								end
-							end,
-						},
-						["<S-Tab>"] = {
-							function(cmp)
-								if not cmp.is_menu_visible() then
-									cmp.show()
-								else
-									cmp.select_prev()
-								end
-							end,
+			opts = function()
+				return {
+					keymap = { preset = "enter" },
+					cmdline = {
+						keymap = {
+							preset = "enter",
+							["<Tab>"] = {
+								function(cmp)
+									if not cmp.is_menu_visible() then
+										cmp.show()
+									else
+										cmp.select_next()
+									end
+								end,
+							},
+							["<S-Tab>"] = {
+								function(cmp)
+									if not cmp.is_menu_visible() then
+										cmp.show()
+									else
+										cmp.select_prev()
+									end
+								end,
+							},
 						},
 					},
-				},
-
-				appearance = {
-					use_nvim_cmp_as_default = true,
-					nerd_font_variant = "mono",
-				},
-				sources = {
-					default = { "lsp", "path", "snippets", "buffer", "lazydev" },
-					providers = {
-						lsp = { fallbacks = { "lazydev" } },
-						lazydev = { name = "LazyDev", module = "lazydev.integrations.blink" },
-					},
-					min_keyword_length = function(ctx)
-						if ctx.mode == "cmdline" then
-							return 6
-						end
-						return 0
-					end,
-				},
-
-				-- experimental auto-brackets support
-				completion = {
-					accept = { auto_brackets = { enabled = true } },
-					documentation = {
-						auto_show = true,
-						auto_show_delay_ms = 0,
-					},
-					list = {
-						selection = {
-							preselect = true,
-							auto_insert = false,
+					appearance = { use_nvim_cmp_as_default = true, nerd_font_variant = "mono" },
+					sources = {
+						default = { "lsp", "path", "snippets", "buffer", "lazydev" },
+						providers = {
+							lsp = { fallbacks = { "lazydev" } },
+							lazydev = { name = "LazyDev", module = "lazydev.integrations.blink" },
 						},
+						min_keyword_length = function(ctx)
+							if ctx.mode == "cmdline" then
+								return 6
+							end
+							return 0
+						end,
 					},
-				},
-
-				-- experimental signature help support
-				signature = { enabled = true },
-			},
-			opts_extend = { "sources.default" },
+					completion = {
+						accept = { auto_brackets = { enabled = true } },
+						documentation = { auto_show = true, auto_show_delay_ms = 0 },
+						list = { selection = { preselect = true, auto_insert = false } },
+					},
+					signature = { enabled = true },
+				}
+			end,
 		},
-		{
-			"onsails/lspkind.nvim",
-		},
+		{ "onsails/lspkind.nvim" },
 	},
 	config = function()
-		require("mason").setup()
+		local lspconfig = require("lspconfig")
+		local capabilities = require("cmp_nvim_lsp").default_capabilities()
+
 		require("mason-lspconfig").setup({
 			ensure_installed = {
 				"clangd",
@@ -189,22 +166,27 @@ return {
 				"lua_ls",
 				"rust_analyzer",
 				"tailwindcss",
-				-- "ts_ls",
 				"vtsls",
 				"vimls",
 			},
-			automatic_enable = true,
+			handlers = {
+				function(server_name)
+					lspconfig[server_name].setup({
+						capabilities = capabilities,
+					})
+				end,
+				["lua_ls"] = function()
+					lspconfig.lua_ls.setup({
+						capabilities = capabilities,
+						settings = {
+							Lua = {
+								diagnostics = { globals = { "vim" } },
+								workspace = { library = vim.api.nvim_get_runtime_file("", true) },
+							},
+						},
+					})
+				end,
+			},
 		})
-
-		-- for reasons unknown
-		function docker_fix()
-			local filename = vim.fn.expand("%:t")
-
-			if filename == "docker-compose.yaml" or filename == "docker-compose.yml" then
-				vim.bo.filetype = "yaml.docker-compose"
-			end
-		end
-
-		vim.cmd([[au BufRead * lua docker_fix()]])
 	end,
 }

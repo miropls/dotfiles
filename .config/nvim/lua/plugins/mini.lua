@@ -1,6 +1,7 @@
 return {
 	"echasnovski/mini.nvim",
 	version = false,
+	event = "VeryLazy", -- Lazy-load the entire mini.nvim suite
 	config = function()
 		-- Appereance
 		require("mini.notify").setup()
@@ -9,47 +10,27 @@ return {
 		-- Text manipulation
 		require("mini.ai").setup()
 		require("mini.operators").setup({
-			evaluate = {
-				prefix = "m=",
-			},
-			exchange = {
-				prefix = "mx",
-				reindent_linewise = true,
-			},
-			multiply = {
-				prefix = "mm",
-			},
-			replace = {
-				prefix = "mr",
-				reindent_linewise = true,
-			},
-			sort = {
-				prefix = "ms",
-			},
+			evaluate = { prefix = "m=" },
+			exchange = { prefix = "mx", reindent_linewise = true },
+			multiply = { prefix = "mm" },
+			replace = { prefix = "mr", reindent_linewise = true },
+			sort = { prefix = "ms" },
 		})
 		require("mini.surround").setup()
 		require("mini.comment").setup()
 		require("mini.align").setup({
-			mappings = {
-				start = "ma",
-				start_with_preview = "mA",
-			},
+			mappings = { start = "ma", start_with_preview = "mA" },
 		})
 		require("mini.splitjoin").setup({
-			mappings = {
-				toggle = "mS",
-			},
+			mappings = { toggle = "mS" },
 		})
 
 		require("mini.move").setup({
 			mappings = {
-				-- Move visual selection in Visual mode. Defaults are Alt (Meta) + hjkl.
 				left = "<M-Left>",
 				down = "<M-Down>",
 				up = "<M-Up>",
 				right = "<M-Right>",
-
-				-- Move current line in Normal mode
 				line_left = "<M-Left>",
 				line_down = "<M-Down>",
 				line_up = "<M-Up>",
@@ -59,47 +40,28 @@ return {
 
 		local miniclue = require("mini.clue")
 		miniclue.setup({
-			window = {
-				delay = 500,
-			},
+			window = { delay = 500 },
 			triggers = {
-				-- Leader triggers
 				{ mode = "n", keys = "<Leader>" },
 				{ mode = "x", keys = "<Leader>" },
-
-				-- Built-in completion
 				{ mode = "i", keys = "<C-x>" },
-
-				-- `g` key
 				{ mode = "n", keys = "g" },
 				{ mode = "x", keys = "g" },
-
-				-- `m` key
 				{ mode = "n", keys = "m" },
 				{ mode = "x", keys = "m" },
-
-				-- Marks
 				{ mode = "n", keys = "'" },
 				{ mode = "n", keys = "`" },
 				{ mode = "x", keys = "'" },
 				{ mode = "x", keys = "`" },
-
-				-- Registers
 				{ mode = "n", keys = '"' },
 				{ mode = "x", keys = '"' },
 				{ mode = "i", keys = "<C-r>" },
 				{ mode = "c", keys = "<C-r>" },
-
-				-- Window commands
 				{ mode = "n", keys = "<C-w>" },
-
-				-- `z` key
 				{ mode = "n", keys = "z" },
 				{ mode = "x", keys = "z" },
 			},
-
 			clues = {
-				-- Enhance this by adding descriptions for <Leader> mapping groups
 				{ mode = "n", keys = "<Leader>a", desc = "+AI" },
 				{ mode = "n", keys = "<Leader>d", desc = "+Diagnostics" },
 				{ mode = "n", keys = "<Leader>f", desc = "+Find" },
