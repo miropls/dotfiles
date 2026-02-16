@@ -6,4 +6,4 @@ abbr -a -- md mkdir
 abbr -a -- ... ../../
 abbr -a -- .... ../../../
 abbr -a -- gp 'git pull'
-abbr -a -- gP 'git push -u origin DHMA-1110/migrate-secrets-to-eas --force-with-lease'
+abbr -a -- gP 'git push -u origin $(git branch --show-current) --force-with-lease'
