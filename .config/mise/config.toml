@@ -1,0 +1,9 @@
+[settings]
+idiomatic_version_file_enable_tools = ["node"]
+
+[tools]
+node = "24"
+"npm:@vtsls/language-server" = "latest"
+"npm:prettier" = "latest"
+usage = "latest"
+yarn = "latest"
