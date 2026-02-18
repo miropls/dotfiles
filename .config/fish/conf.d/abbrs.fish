@@ -8,3 +8,5 @@ abbr -a -- .... ../../../
 abbr -a -- gp 'git pull'
 abbr -a -- gP 'git push -u origin $(git branch --show-current) --force-with-lease'
 abbr -a -- lg lazygit
+abbr -a -- gd 'git diff'
+abbr -a -- ga 'git add'

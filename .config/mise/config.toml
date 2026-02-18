@@ -2,8 +2,21 @@
 idiomatic_version_file_enable_tools = ["node"]
 
 [tools]
+aws = { version = "latest", symlink_bins = "true" }
+gcloud = "latest"
 node = "24"
 "npm:@vtsls/language-server" = "latest"
 "npm:prettier" = "latest"
+ripgrep = "latest"
 usage = "latest"
 yarn = "latest"
+fzf = "latest"
+fd = "latest"
+eza = "latest"
+bat = "latest"
+java = "zulu-17"
+go = "latest"
+rust = "latest"
+bun = "latest"
+zellij = "latest"
+gh = "latest"
