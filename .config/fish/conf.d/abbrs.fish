@@ -10,3 +10,4 @@ abbr -a -- gP 'git push -u origin $(git branch --show-current) --force-with-leas
 abbr -a -- lg lazygit
 abbr -a -- gd 'git diff'
 abbr -a -- ga 'git add'
+abbr -a -- oc opencode
