@@ -1,6 +1,6 @@
 return {
 	"neovim/nvim-lspconfig",
-	event = "VeryLazy",
+	event = { "BufReadPre", "BufNewFile" },
 	version = "*",
 	keys = {
 		{
@@ -83,10 +83,6 @@ return {
 		},
 		"mason-org/mason-lspconfig.nvim",
 		{
-			"hrsh7th/cmp-nvim-lsp",
-			dependencies = { "hrsh7th/nvim-cmp" },
-		},
-		{
 			"folke/lazydev.nvim",
 			ft = "lua",
 			opts = { library = { { path = "${3rd}/luv/library", words = { "vim%.uv" } } } },
@@ -147,11 +143,10 @@ return {
 				}
 			end,
 		},
-		{ "onsails/lspkind.nvim" },
 	},
 	config = function()
 		local lspconfig = require("lspconfig")
-		local capabilities = require("cmp_nvim_lsp").default_capabilities()
+		local capabilities = require("blink.cmp").get_lsp_capabilities()
 
 		require("mason-lspconfig").setup({
 			ensure_installed = {
@@ -180,8 +175,8 @@ return {
 						capabilities = capabilities,
 						settings = {
 							Lua = {
+								-- lazydev.nvim handles the runtime library
 								diagnostics = { globals = { "vim" } },
-								workspace = { library = vim.api.nvim_get_runtime_file("", true) },
 							},
 						},
 					})

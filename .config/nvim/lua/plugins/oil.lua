@@ -11,7 +11,7 @@ return {
 		keymaps = {
 			["q"] = "actions.close",
 			["<Esc>"] = "actions.close",
-			["<C-h"] = "actions.select_split",
+			["<C-h>"] = "actions.select_split",
 			["<C-v>"] = "actions.select_vsplit",
 		},
 		view_options = {
