@@ -11,3 +11,5 @@ abbr -a -- lg lazygit
 abbr -a -- gd 'git diff'
 abbr -a -- ga 'git add'
 abbr -a -- oc opencode
+abbr -a -- cl claude
+abbr -a -- nv nvim
