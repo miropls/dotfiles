@@ -22,6 +22,7 @@ return {
 			"bash",
 			"query",
 			"regex",
+			"yaml",
 		})
 
 		vim.api.nvim_create_autocmd("FileType", {

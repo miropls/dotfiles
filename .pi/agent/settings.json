@@ -1,5 +1,5 @@
 {
-  "lastChangelogVersion": "0.74.0",
+  "lastChangelogVersion": "0.75.4",
   "packages": [
     "npm:@ssweens/pi-vertex",
     "npm:pi-subagents",
@@ -13,10 +13,10 @@
     "npm:pi-mcp-adapter"
   ],
   "defaultProvider": "github-copilot",
-  "defaultModel": "gpt-5.4",
+  "defaultModel": "claude-opus-4.6",
   "theme": "kanagawa-dragon",
-  "defaultThinkingLevel": "xhigh",
-  "hideThinkingBlock": true,
+  "defaultThinkingLevel": "high",
+  "hideThinkingBlock": false,
   "subagents": {
     "agentOverrides": {
       "context-builder": {
