@@ -29,12 +29,13 @@ keybind = alt+v=paste_from_clipboard
 
 # Font
 # font-family = Iosevka Nerd Font
-font-family = JetBrainsMono Nerd Font Mono
-# font-family = Terminess Nerd Font Mono
-font-size = 14
-font-thicken = true
-keybind = alt+plus=increase_font_size:1
-keybind = alt+minus=decrease_font_size:1
+# font-family = JetBrainsMono Nerd Font Mono
+font-family = Terminess Nerd Font Mono
+font-size = 18 
+font-thicken = true 
+font-thicken-strength = 128 
+keybind = alt+minus=increase_font_size:1
+keybind = alt+equal=decrease_font_size:1
 keybind = alt+0=reset_font_size
 
 # Tab navigation
