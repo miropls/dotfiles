@@ -10,65 +10,6 @@ return {
 				grep = { hidden = true },
 			},
 		},
-		dashboard = {
-			enabled = true,
-			preset = {
-				keys = {
-					{
-						key = "f",
-						desc = "Find Files",
-						action = function()
-							Snacks.picker.files()
-						end,
-						icon = "",
-					},
-					{
-						key = "g",
-						desc = "Live Grep",
-						action = function()
-							Snacks.picker.grep()
-						end,
-						icon = "",
-					},
-					{
-						key = "r",
-						desc = "Recent Files",
-						action = function()
-							Snacks.picker.recent()
-						end,
-						icon = "",
-					},
-					{
-						key = "c",
-						desc = "Config",
-						action = function()
-							Snacks.picker.files({ cwd = vim.fn.stdpath("config") })
-						end,
-						icon = "",
-					},
-					{
-						key = "l",
-						desc = "LazyGit",
-						action = function()
-							Snacks.lazygit()
-						end,
-						icon = "",
-					},
-					{
-						key = "q",
-						desc = "Quit",
-						action = ":qa",
-						icon = "",
-					},
-				},
-			},
-			sections = {
-				{ section = "header" },
-				{ section = "keys", gap = 1, padding = 1 },
-				{ section = "recent_files", limit = 5, padding = 1 },
-				{ section = "startup" },
-			},
-		},
 		animate = { enabled = true },
 		scroll = { enabled = true },
 		dim = { enabled = true },
@@ -79,7 +20,7 @@ return {
 		lazygit = { enabled = true },
 		gitbrowse = { enabled = true },
 		gh = { enabled = true },
-		notifier = { enabled = false },
+		notifier = { enabled = true },
 		select = { enabled = true },
 	},
 	config = function(_, opts)
@@ -146,6 +87,13 @@ return {
 			"<leader>fc",
 			function()
 				Snacks.picker.files({ cwd = vim.fn.stdpath("config") })
+			end,
+			desc = "Find in Config",
+		},
+		{
+			"<leader>fk",
+			function()
+				Snacks.picker.keymaps()
 			end,
 			desc = "Find in Config",
 		},

@@ -1,15 +1,56 @@
 {
-  "lastChangelogVersion": "0.67.68",
+  "lastChangelogVersion": "0.74.0",
   "packages": [
     "npm:@ssweens/pi-vertex",
     "npm:pi-subagents",
     "npm:pi-web-access",
     "git:github.com/MasuRii/pi-permission-system",
-    "npm:@danchamorro/pi-prompt-enhancer"
+    "npm:@juicesharp/rpiv-ask-user-question",
+    "npm:pi-lens",
+    "npm:@juicesharp/rpiv-todo",
+    "npm:@juicesharp/rpiv-btw",
+    "npm:context-mode",
+    "npm:pi-mcp-adapter"
   ],
-  "defaultProvider": "vertex",
-  "defaultModel": "claude-sonnet-4-6",
-  "theme": "carbonfox",
-  "defaultThinkingLevel": "high",
-  "hideThinkingBlock": true
+  "defaultProvider": "github-copilot",
+  "defaultModel": "gpt-5.4",
+  "theme": "kanagawa-dragon",
+  "defaultThinkingLevel": "xhigh",
+  "hideThinkingBlock": true,
+  "subagents": {
+    "agentOverrides": {
+      "context-builder": {
+        "model": "github-copilot/claude-opus-4.6"
+      },
+      "scout": {
+        "model": "github-copilot/claude-haiku-4.5"
+      },
+      "reviewer": {
+        "model": "github-copilot/claude-opus-4.6"
+      },
+      "planner": {
+        "model": "github-copilot/claude-opus-4.6"
+      },
+      "researcher": {
+        "model": "github-copilot/claude-sonnet-4.6"
+      },
+      "oracle": {
+        "model": "github-copilot/claude-sonnet-4.6"
+      },
+      "worker": {
+        "model": "github-copilot/claude-sonnet-4.6"
+      }
+    }
+  },
+  "enabledModels": [
+    "github-copilot/claude-haiku-4.5",
+    "github-copilot/claude-opus-4.6",
+    "github-copilot/claude-sonnet-4.6",
+    "github-copilot/gemini-3.1-pro-preview",
+    "github-copilot/gpt-5.3-codex",
+    "github-copilot/gpt-5.4",
+    "github-copilot/gpt-5.4-mini",
+    "github-copilot/gpt-5.5",
+    "github-copilot/gemini-3-flash-preview"
+  ]
 }

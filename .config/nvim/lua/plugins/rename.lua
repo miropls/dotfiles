@@ -11,5 +11,7 @@ return {
 			desc = "Rename",
 		},
 	},
-	opts = {},
+	opts = {
+		input_buffer_type = "snacks",
+	},
 }

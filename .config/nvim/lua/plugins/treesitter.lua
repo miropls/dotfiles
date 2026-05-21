@@ -21,6 +21,7 @@ return {
 			"php",
 			"bash",
 			"query",
+			"regex",
 		})
 
 		vim.api.nvim_create_autocmd("FileType", {

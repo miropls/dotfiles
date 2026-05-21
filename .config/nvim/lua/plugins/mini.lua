@@ -1,10 +1,11 @@
 return {
-	"echasnovski/mini.nvim",
+	"nvim-mini/mini.nvim",
 	version = false,
 	event = "VeryLazy", -- Lazy-load the entire mini.nvim suite
 	config = function()
 		-- Appereance
 		require("mini.icons").setup()
+		require("mini.statusline").setup()
 
 		-- Text manipulation
 		require("mini.ai").setup()

@@ -32,7 +32,7 @@ vnoremap <leader>y "+y
 nnoremap <leader>Y "+Y
 
 " ── LSP Navigation ───────────────────────────────────────────────────────
-nmap gh <Action>(QuickJavaDoc)
+nmap gh <Action>(ShowHoverInfo)
 nmap gl <Action>(ShowErrorDescription)
 nmap gd <Action>(GotoDeclaration)
 nmap gD <Action>(GotoDeclaration)
@@ -53,9 +53,6 @@ nmap <leader>dd <Action>(ActivateProblemsViewToolWindow)
 nmap <leader>ff <Action>(GotoFile)
 nmap <leader>fg <Action>(GotoFile)
 nmap <leader>p  <Action>(FindInPath)
-
-" ── File Tree ────────────────────────────────────────────────────────────
-nmap <leader>m <Action>(SelectInProjectView)
 
 " ── Tabs / Panes ─────────────────────────────────────────────────────────
 nmap <leader>cr <Action>(CloseAllToTheRight)
