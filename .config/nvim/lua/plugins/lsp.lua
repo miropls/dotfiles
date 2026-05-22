@@ -2,71 +2,8 @@ return {
 	"neovim/nvim-lspconfig",
 	event = { "BufReadPre", "BufNewFile" },
 	version = "*",
-	keys = {
-		{
-			"gh",
-			function()
-				vim.lsp.buf.hover({ max_width = math.floor(vim.o.columns * 0.8) })
-			end,
-			desc = "Hover",
-		},
-		{ "gl", vim.diagnostic.open_float, desc = "Hover error" },
-		{ "gD", vim.lsp.buf.declaration, desc = "Goto declaration" },
-		{ "ga", vim.lsp.buf.code_action, desc = "Code actions" },
-		{
-			"gd",
-			function()
-				Snacks.picker.lsp_definitions()
-			end,
-			desc = "Goto definition",
-		},
-		{
-			"gt",
-			function()
-				Snacks.picker.lsp_type_definitions()
-			end,
-			desc = "Type definition",
-		},
-		{
-			"gr",
-			function()
-				Snacks.picker.lsp_references()
-			end,
-			desc = "References",
-		},
-		{
-			"gi",
-			function()
-				Snacks.picker.lsp_implementations()
-			end,
-			desc = "Goto implementations",
-		},
-		{
-			"<leader>dn",
-			function()
-				vim.diagnostic.jump({ count = 1, float = true })
-			end,
-			desc = "Go to next diagnostic",
-		},
-		{
-			"<leader>dp",
-			function()
-				vim.diagnostic.jump({ count = -1, float = true })
-			end,
-			desc = "Go to prev diagnostic",
-		},
-		{ "<leader>ni", "<cmd>LspInfo<CR>", desc = "LspInfo" },
-	},
 	dependencies = {
-		{
-			"mason-org/mason.nvim",
-			opts = {
-				registries = {
-					"github:mason-org/mason-registry",
-					"github:Crashdummyy/mason-registry",
-				},
-			},
-		},
+		"mason-org/mason.nvim",
 		"mason-org/mason-lspconfig.nvim",
 		{
 			"folke/lazydev.nvim",
@@ -131,6 +68,35 @@ return {
 		},
 	},
 	config = function()
+		vim.api.nvim_create_autocmd("LspAttach", {
+			group = vim.api.nvim_create_augroup("lsp-attach-keymaps", { clear = true }),
+			callback = function(event)
+				local map = function(keys, func, desc)
+					vim.keymap.set("n", keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
+				end
+
+				map("gh", function()
+					vim.lsp.buf.hover({ max_width = math.floor(vim.o.columns * 0.8) })
+				end, "Hover")
+				map("gl", vim.diagnostic.open_float, "Hover error")
+				map("gD", vim.lsp.buf.declaration, "Goto declaration")
+				map("ga", vim.lsp.buf.code_action, "Code actions")
+				map("gd", function()
+					Snacks.picker.lsp_definitions()
+				end, "Goto definition")
+				map("gt", function()
+					Snacks.picker.lsp_type_definitions()
+				end, "Type definition")
+				map("gr", function()
+					Snacks.picker.lsp_references()
+				end, "References")
+				map("gi", function()
+					Snacks.picker.lsp_implementations()
+				end, "Goto implementations")
+			end,
+		})
+
+		require("mason").setup()
 		local lspconfig = require("lspconfig")
 		local capabilities = require("blink.cmp").get_lsp_capabilities()
 
@@ -142,13 +108,17 @@ return {
 				"dockerls",
 				"eslint",
 				"gopls",
-				"intelephense",
 				"jsonls",
 				"lua_ls",
 				"rust_analyzer",
 				"tailwindcss",
 				"vtsls",
 				"vimls",
+				"taplo",
+				"ruff",
+				"stylua",
+				"yamlls",
+				"yamlfix",
 			},
 			handlers = {
 				function(server_name)
@@ -156,17 +126,11 @@ return {
 						capabilities = capabilities,
 					})
 				end,
-				["lua_ls"] = function()
-					lspconfig.lua_ls.setup({
-						capabilities = capabilities,
-						settings = {
-							Lua = {
-								-- lazydev.nvim handles the runtime library
-								diagnostics = { globals = { "vim" } },
-							},
-						},
-					})
-				end,
+			["lua_ls"] = function()
+				lspconfig.lua_ls.setup({
+					capabilities = capabilities,
+				})
+			end,
 			},
 		})
 	end,

@@ -23,26 +23,13 @@ return {
 			"query",
 			"regex",
 			"yaml",
+			"toml",
 		})
 
 		vim.api.nvim_create_autocmd("FileType", {
-			pattern = {
-				"c",
-				"lua",
-				"rust",
-				"go",
-				"javascript",
-				"typescript",
-				"html",
-				"yaml",
-				"typescriptreact",
-				"php",
-				"sh",
-				"astro",
-				"help",
-			},
+			pattern = "*",
 			callback = function()
-				vim.treesitter.start()
+				pcall(vim.treesitter.start)
 			end,
 		})
 

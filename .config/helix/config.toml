@@ -1,4 +1,4 @@
-theme = "everforest_t"
+theme = "catppuccin_mocha_t"
 
 [editor]
 line-number = "relative"

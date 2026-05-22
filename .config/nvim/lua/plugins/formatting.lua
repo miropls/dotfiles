@@ -25,7 +25,7 @@ return {
 		-- I've set the log level to WARN to be less verbose
 		log_level = vim.log.levels.WARN,
 		formatters_by_ft = {
-			c = { "clangd" },
+			c = { "clang-format" },
 			lua = { "stylua" },
 			python = { "ruff", "black", stop_after_first = true },
 			javascript = { "oxfmt", "biome", "prettierd", "prettier", stop_after_first = true },
@@ -37,7 +37,7 @@ return {
 			vue = { "oxfmt", "biome", "prettierd", "prettier", stop_after_first = true },
 			css = { "oxfmt", "biome", "prettierd", "prettier", stop_after_first = true },
 			html = { "oxfmt", "biome", "prettierd", "prettier", stop_after_first = true },
-			json = { "json-lsp", "oxfmt", "biome", "prettierd", "prettier", stop_after_first = true },
+			json = { "oxfmt", "biome", "prettierd", "prettier", stop_after_first = true },
 			go = { "gofmt", "goimports" },
 			rust = { "rustfmt" },
 			yaml = { "yamlfix", "oxfmt", "prettierd", "prettier", stop_after_first = true },
@@ -48,7 +48,7 @@ return {
 			if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
 				return
 			end
-			return { timeout_ms = 1500, lsp_fallback = true }
+			return { timeout_ms = 1500, lsp_format = "fallback" }
 		end,
 	},
 }

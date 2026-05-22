@@ -95,7 +95,7 @@ return {
 			function()
 				Snacks.picker.keymaps()
 			end,
-			desc = "Find in Config",
+			desc = "Find keymaps",
 		},
 		{
 			"<leader>p",
@@ -138,12 +138,6 @@ return {
 				Snacks.picker.qflist()
 			end,
 			desc = "Quickfix",
-		},
-		{
-			"<leader>db",
-			function()
-				Snacks.dashboard()
-			end,
 		},
 	},
 }

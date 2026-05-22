@@ -1,8 +1,9 @@
 # Theme
-theme = Kanagawa Dragon 
+theme = Catppuccin Mocha 
 
 # Window settings 
-background-opacity = 0.9
+background-opacity = 0.85
+background-blur = 15 
 window-decoration = true 
 window-theme = ghostty
 mouse-hide-while-typing = true

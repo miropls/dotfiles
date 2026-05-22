@@ -38,8 +38,6 @@ return {
 			},
 		})
 
-		-- require("mini.diff").setup()
-
 		-- Navigation
 		require("mini.bracketed").setup()
 
