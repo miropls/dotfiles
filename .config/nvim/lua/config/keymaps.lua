@@ -22,8 +22,12 @@ vim.keymap.set("t", "<D-v>", "<C-R>+", { noremap = true, silent = true })
 vim.keymap.set("v", "<D-v>", "<C-R>+", { noremap = true, silent = true })
 
 -- Diagnostics (global -- available regardless of LSP attachment)
-vim.keymap.set("n", "<leader>dn", function() vim.diagnostic.jump({ count = 1, float = true }) end, { desc = "Go to next diagnostic" })
-vim.keymap.set("n", "<leader>dp", function() vim.diagnostic.jump({ count = -1, float = true }) end, { desc = "Go to prev diagnostic" })
+vim.keymap.set("n", "<leader>dn", function()
+	vim.diagnostic.jump({ count = 1, float = true })
+end, { desc = "Go to next diagnostic" })
+vim.keymap.set("n", "<leader>dp", function()
+	vim.diagnostic.jump({ count = -1, float = true })
+end, { desc = "Go to prev diagnostic" })
 vim.keymap.set("n", "<leader>ni", "<cmd>checkhealth vim.lsp<cr>", { desc = "LSP health check" })
 
 -- Lazy

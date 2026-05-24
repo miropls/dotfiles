@@ -3,6 +3,13 @@ return {
 	priority = 1000,
 	lazy = false,
 	opts = {
+		animate = { enabled = true },
+		dim = { enabled = true },
+		gh = { enabled = true },
+		gitbrowse = { enabled = true },
+		input = { enabled = true },
+		lazygit = { enabled = true },
+		notifier = { enabled = true },
 		picker = {
 			enabled = true,
 			sources = {
@@ -10,18 +17,11 @@ return {
 				grep = { hidden = true },
 			},
 		},
-		animate = { enabled = true },
 		scroll = { enabled = true },
-		dim = { enabled = true },
-		zen = { enabled = true },
-		words = { enabled = true },
-		toggle = { enabled = true },
-		input = { enabled = true },
-		lazygit = { enabled = true },
-		gitbrowse = { enabled = true },
-		gh = { enabled = true },
-		notifier = { enabled = true },
 		select = { enabled = true },
+		toggle = { enabled = true },
+		words = { enabled = true },
+		zen = { enabled = true },
 	},
 	config = function(_, opts)
 		require("snacks").setup(opts)
@@ -61,6 +61,20 @@ return {
 				Snacks.picker.gh_pr()
 			end,
 			desc = "GitHub PRs",
+		},
+		{
+			"<leader>gha",
+			function()
+				Snacks.picker.gh_actions()
+			end,
+			desc = "GitHub Actions",
+		},
+		{
+			"<leader>ghd",
+			function()
+				Snacks.picker.gh_diff()
+			end,
+			desc = "GitHub PR Diff",
 		},
 		{
 			"<leader>ff",
@@ -138,6 +152,34 @@ return {
 				Snacks.picker.qflist()
 			end,
 			desc = "Quickfix",
+		},
+		{
+			"<leader>fm",
+			function()
+				Snacks.picker.man()
+			end,
+			desc = "Manpages",
+		},
+		{
+			"<leader>fn",
+			function()
+				Snacks.picker.notifications()
+			end,
+			desc = "Notifications",
+		},
+		{
+			"<leader>fs",
+			function()
+				Snacks.picker.search_history()
+			end,
+			desc = "Search history",
+		},
+		{
+			"<leader>fz",
+			function()
+				Snacks.picker.zoxide()
+			end,
+			desc = "Zoxide",
 		},
 	},
 }

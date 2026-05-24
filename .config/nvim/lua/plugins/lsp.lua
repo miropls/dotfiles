@@ -93,6 +93,9 @@ return {
 				map("gi", function()
 					Snacks.picker.lsp_implementations()
 				end, "Goto implementations")
+				map("gs", function()
+					Snacks.picker.lsp_symbols()
+				end, "LSP symbols")
 			end,
 		})
 
