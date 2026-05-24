@@ -2,8 +2,6 @@
 idiomatic_version_file_enable_tools = ["node"]
 
 [tools]
-aws = { version = "latest", symlink_bins = "true" }
-gcloud = "latest"
 node = "24"
 ripgrep = "latest"
 usage = "latest"
@@ -11,15 +9,12 @@ yarn = "latest"
 fzf = "latest"
 fd = "latest"
 bat = "latest"
-go = "latest"
 rust = "latest"
+go = "latest"
 bun = "latest"
 gh = "latest"
-jfrog-cli = "latest"
-supabase = "latest"
 neovim = "latest"
 starship = "latest"
 zoxide = "latest"
-opencode = "latest"
 helix = "latest"
-zellij = "latest"
+zig = "latest"

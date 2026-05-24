@@ -1,7 +1,7 @@
 return {
 	"nvim-mini/mini.nvim",
 	version = false,
-	event = "VeryLazy", -- Lazy-load the entire mini.nvim suite
+	event = "VeryLazy",
 	config = function()
 		-- Appereance
 		require("mini.icons").setup()
@@ -37,9 +37,6 @@ return {
 				line_right = "<M-Right>",
 			},
 		})
-
-		-- Navigation
-		require("mini.bracketed").setup()
 
 		-- Appearance
 		require("mini.hipatterns").setup({

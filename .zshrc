@@ -1,5 +1,5 @@
 export ZSH="$HOME/.oh-my-zsh"
-export EDITOR="hx"
+export EDITOR="nvim"
 export VISUAL="$EDITOR"
 export DOTNET_ROOT="$(dirname $(which dotnet))"
 

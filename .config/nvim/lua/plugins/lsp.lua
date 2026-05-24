@@ -118,7 +118,6 @@ return {
 				"ruff",
 				"stylua",
 				"yamlls",
-				"yamlfix",
 			},
 			handlers = {
 				function(server_name)
@@ -126,11 +125,11 @@ return {
 						capabilities = capabilities,
 					})
 				end,
-			["lua_ls"] = function()
-				lspconfig.lua_ls.setup({
-					capabilities = capabilities,
-				})
-			end,
+				["lua_ls"] = function()
+					lspconfig.lua_ls.setup({
+						capabilities = capabilities,
+					})
+				end,
 			},
 		})
 	end,
