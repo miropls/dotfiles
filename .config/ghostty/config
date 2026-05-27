@@ -29,10 +29,10 @@ keybind = alt+c=copy_to_clipboard
 keybind = alt+v=paste_from_clipboard
 
 # Font
-# font-family = Iosevka Nerd Font
+font-family = Iosevka Nerd Font
 # font-family = JetBrainsMono Nerd Font Mono
-font-family = Terminess Nerd Font Mono
-font-size = 18 
+# font-family = Terminess Nerd Font Mono
+font-size = 16
 font-thicken = true 
 font-thicken-strength = 128 
 keybind = alt+minus=increase_font_size:1
@@ -76,11 +76,11 @@ keybind = super+alt+arrow_down=goto_split:down
 keybind = super+alt+arrow_up=goto_split:up
 keybind = super+alt+arrow_right=goto_split:right
 
-# Scrolling: 1 line at a time
-keybind = ctrl+shift+arrow_up=scroll_page_lines:-1
-keybind = ctrl+shift+arrow_down=scroll_page_lines:1
-
-# Scrolling: half page at a time
-keybind = alt+ctrl+shift+arrow_up=scroll_page_fractional:-0.5
-keybind = alt+ctrl+shift+arrow_down=scroll_page_fractional:0.5
+# # Scrolling: 1 line at a time
+# keybind = ctrl+shift+arrow_up=scroll_page_lines:-1
+# keybind = ctrl+shift+arrow_down=scroll_page_lines:1
+#
+# # Scrolling: half page at a time
+# keybind = alt+ctrl+shift+arrow_up=scroll_page_fractional:-0.5
+# keybind = alt+ctrl+shift+arrow_down=scroll_page_fractional:0.5
 
