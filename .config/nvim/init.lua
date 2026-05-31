@@ -6,7 +6,7 @@ require("vim._core.ui2").enable({
 	msg = {
 		target = "msg",
 		msg = {
-			height = 0.0001,
+			height = 1,
 			width = 1,
 			timeout = 2000,
 		},
