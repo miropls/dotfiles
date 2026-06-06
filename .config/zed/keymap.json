@@ -74,6 +74,9 @@
       ],
       "space p p": "workspace::NewSearch",
 
+      // Toggle
+      "space t i": "editor::ToggleInlayHints",
+
       // Go-to
       "g r": "editor::FindAllReferences",
       "g i": "editor::GoToImplementation",
