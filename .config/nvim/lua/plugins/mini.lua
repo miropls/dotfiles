@@ -5,7 +5,6 @@ return {
 	config = function()
 		-- Appereance
 		require("mini.icons").setup()
-		require("mini.statusline").setup()
 
 		-- Text manipulation
 		require("mini.ai").setup()
