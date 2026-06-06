@@ -1,0 +1,148 @@
+[
+  // ── Global ───────────────────────────────────────────────────────────────
+  {
+    "bindings": {
+      "super-b": null,
+    },
+  },
+  {
+    "context": "(VimControl && !menu)",
+    "bindings": {
+      "space": null, // Disable the default action vim::WrappingRight
+    },
+  },
+
+  // ── Workspace ────────────────────────────────────────────────────────────
+  {
+    "context": "Workspace",
+    "bindings": {
+      "alt-g": "git_panel::ToggleFocus",
+      "alt-b": "project_panel::ToggleFocus",
+      "alt-d": "agent::ToggleFocus",
+      "alt-s": "multi_workspace::ToggleWorkspaceSidebar",
+      "alt-t": "terminal_panel::ToggleFocus",
+      "alt-m": "diagnostics::Deploy",
+      "alt-f": "agent::Follow",
+      "alt-h": "workspace::CloseAllDocks",
+    },
+  },
+
+  // ── Editor ───────────────────────────────────────────────────────────────
+  {
+    "context": "Editor",
+    "bindings": {
+      "ctrl-shift-right": "pane::ActivateNextItem",
+      "ctrl-shift-left": "pane::ActivatePreviousItem",
+      "ctrl-.": "editor::ToggleCodeActions",
+    },
+  },
+  {
+    "context": "Editor && VimControl",
+    "bindings": {
+      // Agent
+      "space a o": "agent::ToggleFocus",
+      "space a i": "assistant::InlineAssist",
+      "space a n n": "agent::NewThread",
+
+      // Bookmarks
+      "space b t": "editor::ToggleBookmark",
+      "space b a": "editor::ViewBookmarks",
+      "space b n": "editor::GoToNextBookmark",
+      "space b p": "editor::GoToPreviousBookmark",
+
+      // Markdown preview
+      "space m p": "markdown::OpenPreview",
+
+      // Files
+      "space f f": "file_finder::Toggle",
+
+      // Git hunks
+      "space h s": "editor::ToggleSelectedDiffHunks",
+      "space h y": "editor::ApplyDiffHunk",
+      "space h n": "git::Restore",
+
+      // Pane / tabs
+      "space c r": "pane::CloseItemsToTheRight",
+      "space c l": "pane::CloseItemsToTheLeft",
+      "space c a": "pane::CloseAllItems",
+
+      // Tasks
+      "space t r": "task::Spawn",
+      "space l g": [
+        "task::Spawn",
+        { "task_name": "LazyGit", "reveal_target": "center" },
+      ],
+      "space p p": "workspace::NewSearch",
+
+      // Go-to
+      "g r": "editor::FindAllReferences",
+      "g i": "editor::GoToImplementation",
+      "g D": "editor::GoToDeclaration",
+      "g t": "editor::GoToTypeDefinition",
+
+      // Clipboard
+      "alt-v": "editor::Paste",
+      "alt-c": "editor::Copy",
+    },
+  },
+  {
+    "context": "Editor && vim_mode == normal",
+    "bindings": {
+      "space r n": "editor::Rename",
+      "space s": "vim::HelixJumpToWord",
+    },
+  },
+
+  // ── Panels ───────────────────────────────────────────────────────────────
+  {
+    "context": "EmptyPane",
+    "bindings": {
+      "space f f": "file_finder::Toggle",
+    },
+  },
+  {
+    "context": "ProjectPanel",
+    "bindings": {
+      "enter": [
+        "action::Sequence",
+        ["project_panel::Open", "workspace::CloseActiveDock"],
+      ],
+      "escape": "workspace::CloseActiveDock",
+      "alt-b": "workspace::CloseActiveDock",
+      "alt-e": "editor::ToggleFocus",
+    },
+  },
+  {
+    "context": "GitPanel",
+    "bindings": {
+      "alt-g": "workspace::CloseActiveDock",
+      "alt-e": "editor::ToggleFocus",
+    },
+  },
+  {
+    "context": "AgentPanel",
+    "bindings": {
+      "alt-d": "workspace::CloseActiveDock",
+      "alt-e": "editor::ToggleFocus",
+      "shift-tab": "agent::CycleModeSelector",
+      "alt-n c": [
+        "agent::NewExternalAgentThread",
+        { "agent": { "custom": { "name": "claude-acp" } } },
+      ],
+    },
+  },
+
+  // ── Terminal ─────────────────────────────────────────────────────────────
+  {
+    "context": "Terminal",
+    "bindings": {
+      "alt-e": "editor::ToggleFocus",
+      "alt-t": "workspace::CloseActiveDock",
+      "alt-n": "workspace::NewTerminal",
+      "ctrl-shift-right": "pane::ActivateNextItem",
+      "ctrl-shift-left": "pane::ActivatePreviousItem",
+      "ctrl-shift-up": "terminal::ScrollLineUp",
+      "ctrl-shift-down": "terminal::ScrollLineDown",
+    },
+  },
+]

@@ -121,6 +121,8 @@ return {
 				"ruff",
 				"stylua",
 				"yamlls",
+				"ols",
+				"zls",
 			},
 			handlers = {
 				function(server_name)

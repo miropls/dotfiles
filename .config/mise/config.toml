@@ -2,20 +2,17 @@
 idiomatic_version_file_enable_tools = ["node"]
 
 [tools]
-node = "24"
+node = "latest"
 ripgrep = "latest"
 usage = "latest"
-yarn = "latest"
 fzf = "latest"
 fd = "latest"
 bat = "latest"
 rust = "latest"
 go = "latest"
-bun = "latest"
 gh = "latest"
 neovim = "latest"
 starship = "latest"
 zoxide = "latest"
-helix = "latest"
 zig = "latest"
-zellij = "latest"
+lazygit = "latest"
