@@ -1,8 +1,9 @@
 # Theme
-theme = Catppuccin Mocha 
+theme = Ayu
 
 # Window settings 
-background-opacity = 0.85
+# background-opacity = 0.85
+background-opacity = 1
 background-blur = 15 
 window-decoration = true 
 window-theme = ghostty
