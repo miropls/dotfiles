@@ -1,9 +1,9 @@
 # Theme
-theme = Ayu
+theme = Catppuccin Mocha
 
 # Window settings 
-# background-opacity = 0.85
-background-opacity = 1
+background-opacity = 0.85
+# background-opacity = 1
 background-blur = 15 
 window-decoration = true 
 window-theme = ghostty
@@ -30,10 +30,10 @@ keybind = alt+c=copy_to_clipboard
 keybind = alt+v=paste_from_clipboard
 
 # Font
-font-family = Iosevka Nerd Font
+# font-family = Iosevka Nerd Font
 # font-family = JetBrainsMono Nerd Font Mono
-# font-family = Terminess Nerd Font Mono
-font-size = 16
+font-family = Terminess Nerd Font Mono
+font-size = 18
 font-thicken = true 
 font-thicken-strength = 128 
 keybind = alt+minus=increase_font_size:1

@@ -1,4 +1,4 @@
-theme = "ayu_dark"
+theme = "catppuccin_mocha_t"
 
 [editor]
 line-number = "relative"
@@ -37,3 +37,5 @@ C-space = "completion"
 [keys.normal.space]
 m = "file_explorer_in_current_buffer_directory"
 M = "file_explorer"
+w = ":w"
+q = ":q"
