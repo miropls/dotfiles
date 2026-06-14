@@ -16,6 +16,13 @@ return {
 				files = { hidden = true },
 				grep = { hidden = true },
 			},
+			win = {
+				input = {
+					keys = {
+						["<Esc>"] = { "close", mode = { "n", "i" } },
+					},
+				},
+			},
 		},
 		scroll = { enabled = true },
 		select = { enabled = true },
