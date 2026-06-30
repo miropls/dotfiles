@@ -82,6 +82,7 @@
       "g i": "editor::GoToImplementation",
       "g D": "editor::GoToDeclaration",
       "g t": "editor::GoToTypeDefinition",
+      "g w": "vim::HelixJumpToWord",
 
       // Clipboard
       "alt-v": "editor::Paste",
@@ -106,10 +107,6 @@
   {
     "context": "ProjectPanel",
     "bindings": {
-      "enter": [
-        "action::Sequence",
-        ["project_panel::Open", "workspace::CloseActiveDock"],
-      ],
       "escape": "workspace::CloseActiveDock",
       "alt-b": "workspace::CloseActiveDock",
       "alt-e": "editor::ToggleFocus",

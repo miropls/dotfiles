@@ -1,5 +1,11 @@
 {
   // ── Appearance ───────────────────────────────────────────────────────────
+  "helix_mode": false,
+  "agent_servers": {
+    "gemini": {
+      "type": "registry",
+    },
+  },
   "cli_default_open_behavior": "existing_window",
   "completion_menu_item_kind": "symbol",
   "outline_panel": {
@@ -9,7 +15,7 @@
     "dock": "right",
   },
   "git_panel": {
-    "dock": "right",
+    "dock": "left",
   },
   "soft_wrap": "editor_width",
   "toolbar": {
@@ -21,8 +27,8 @@
   },
   "theme": {
     "mode": "system",
-    "light": "Dawnfox - blurred",
-    "dark": "Carbonfox - blurred",
+    "light": "Kanagawa Lotus",
+    "dark": "Everforest Dark Hard (blur)",
   },
   "icon_theme": {
     "mode": "system",
@@ -31,13 +37,13 @@
   },
   "ui_font_family": "JetBrainsMono Nerd Font",
   "ui_font_weight": 450,
-  "ui_font_size": 15.0,
+  "ui_font_size": 16.0,
   "buffer_font_family": "JetBrainsMono Nerd Font",
-  "buffer_font_size": 15.0,
+  "buffer_font_size": 16.0,
   "buffer_line_height": "comfortable",
   "buffer_font_weight": 400,
   "cursor_shape": "block",
-  "title_bar": { "show_branch_status_icon": true, "show_sign_in": false },
+  "title_bar": { "show_branch_status_icon": true, "show_sign_in": true },
   "tab_bar": {
     "show": true,
     "show_nav_history_buttons": false,
@@ -80,15 +86,13 @@
       "provider": "copilot_chat",
       "model": "claude-haiku-4.5",
     },
+    "terminal_init_command": "oc",
   },
   "agent_ui_font_size": 16,
   "agent_buffer_font_size": 15,
   "edit_predictions": {
     "mode": "subtle",
-    "codestral": {
-      "model": "codestral-latest",
-    },
-    "provider": "codestral",
+    "provider": "zed",
   },
 
   // ── Misc ─────────────────────────────────────────────────────────────────
