@@ -8,3 +8,4 @@ abbr -a -- gcm 'git commit -m'
 abbr -a -- md mkdir
 abbr -a -- zel zellij
 abbr -a -- hx. 'hx .'
+abbr -a -- lg gitui
