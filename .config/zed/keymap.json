@@ -72,7 +72,7 @@
         "task::Spawn",
         { "task_name": "LazyGit", "reveal_target": "center" },
       ],
-      "space p p": "workspace::NewSearch",
+      "space p p": "text_finder::Toggle",
 
       // Toggle
       "space t i": "editor::ToggleInlayHints",

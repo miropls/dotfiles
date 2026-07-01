@@ -1,11 +1,5 @@
 {
   // ── Appearance ───────────────────────────────────────────────────────────
-  "helix_mode": false,
-  "agent_servers": {
-    "gemini": {
-      "type": "registry",
-    },
-  },
   "cli_default_open_behavior": "existing_window",
   "completion_menu_item_kind": "symbol",
   "outline_panel": {
@@ -27,7 +21,7 @@
   },
   "theme": {
     "mode": "system",
-    "light": "Kanagawa Lotus",
+    "light": "Everforest Light Hard (blur)",
     "dark": "Everforest Dark Hard (blur)",
   },
   "icon_theme": {
@@ -37,12 +31,12 @@
   },
   "ui_font_family": "JetBrainsMono Nerd Font",
   "ui_font_weight": 450,
-  "ui_font_size": 16.0,
-  "buffer_font_family": "JetBrainsMono Nerd Font",
-  "buffer_font_size": 16.0,
+  "ui_font_size": 16,
+  "buffer_font_family": "JetBrainsMono Nerd Font Mono",
+  "buffer_font_size": 16,
   "buffer_line_height": "comfortable",
   "buffer_font_weight": 400,
-  "cursor_shape": "block",
+  // "cursor_shape": "block",
   "title_bar": { "show_branch_status_icon": true, "show_sign_in": true },
   "tab_bar": {
     "show": true,
@@ -67,6 +61,11 @@
   },
 
   // ── Agent / AI ───────────────────────────────────────────────────────────
+  "agent_servers": {
+    "gemini": {
+      "type": "registry",
+    },
+  },
   "agent": {
     "play_sound_when_agent_done": "when_hidden",
     "sidebar_side": "left",
@@ -99,8 +98,12 @@
   "which_key": { "enabled": true, "delay_ms": 400 },
   "telemetry": { "diagnostics": false, "metrics": false },
   "auto_install_extensions": {
-    "kanagawa-themes": true,
+    "everforest": true,
     "catppuccin-icons": true,
     "react-typescript-snippets": true,
   },
+  "terminal": {
+    "copy_on_select": true,
+  },
+  "use_smartcase_search": true,
 }
