@@ -1,6 +1,7 @@
 if status is-interactive
 end
 
+set -g fish_greeting 
 ~/.local/bin/mise activate fish | source
 starship init fish | source
 zoxide init fish | source
