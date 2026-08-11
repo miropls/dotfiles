@@ -21,16 +21,31 @@
       }
     }
   },
-  "model": "google-vertex-anthropic/claude-sonnet-5@default",
+  "model": "github-copilot/gpt-5.6-terra",
   "small_model": "google-vertex-anthropic/claude-haiku-4-5@20251001",
   "lsp": true,
   "plugin": [
     "superpowers@git+https://github.com/obra/superpowers.git"
   ],
+  "agent": {
+    "build": {
+      "model": "github-copilot/gpt-5.6-terra",
+      "variant": "max"
+    },
+    "plan": {
+      "model": "github-copilot/claude-opus-5",
+      "variant": "max"
+    }
+  },
   "mcp": {
     "exa": {
       "type": "remote",
       "url": "https://mcp.exa.ai/mcp",
+      "enabled": true
+    },
+    "context7": {
+      "type": "remote",
+      "url": "https://mcp.context7.com/mcp",
       "enabled": true
     },
     "playwright": {
@@ -41,5 +56,17 @@
       ],
       "enabled": true
     },
+    "aikido": {
+      "type": "local",
+      "command": [
+        "npx",
+        "-y",
+        "@aikidosec/mcp"
+      ],
+      "enabled": true,
+      "environment": {
+        "AIKIDO_API_KEY": "{env:AIKIDO_API_KEY}"
+      }
+    }
   }
 }
