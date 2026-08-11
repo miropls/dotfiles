@@ -24,7 +24,7 @@
     "info": "blue",
     "text": "text",
     "textMuted": "muted",
-    "background": "background",
+    "background": "none",
     "backgroundPanel": "panel",
     "backgroundElement": "surface",
     "border": "surface",
