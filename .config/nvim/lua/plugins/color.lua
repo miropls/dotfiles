@@ -1,14 +1,13 @@
 return {
-	"catppuccin/nvim",
-	name = "catppuccin",
+	"wtfox/luna.nvim",
+	name = "luna",
 	lazy = false,
 	priority = 1000,
 	config = function()
-		require("catppuccin").setup({
-			flavour = "mocha",
-			transparent_background = true,
+		require("luna").setup({
+			transparent = true,
 		})
 
-		vim.cmd.colorscheme("catppuccin")
+		vim.cmd.colorscheme("luna")
 	end,
 }

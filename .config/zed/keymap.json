@@ -125,10 +125,8 @@
       "alt-d": "workspace::CloseActiveDock",
       "alt-e": "editor::ToggleFocus",
       "shift-tab": "agent::CycleModeSelector",
-      "alt-n c": [
-        "agent::NewExternalAgentThread",
-        { "agent": { "custom": { "name": "claude-acp" } } },
-      ],
+      "ctrl-tab": "agent::CycleFavoriteModels",
+      "ctrl-shift-tab": "agent::CycleThinkingEffort",
     },
   },
 

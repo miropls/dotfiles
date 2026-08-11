@@ -3,3 +3,9 @@
 .pi/agent/run-history.jsonl
 .pi/agent/sessions/
 .pi/plan.md
+.config/gcloud
+.config/acli
+.config/gh
+.config/github-copilot
+.config/vercel-plugin
+.config/cagent

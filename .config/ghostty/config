@@ -1,5 +1,5 @@
 # Theme
-theme = Catppuccin Mocha
+theme = luna
 
 # Window settings 
 background-opacity = 0.85
@@ -28,10 +28,10 @@ macos-option-as-alt = left
 copy-on-select = clipboard
 
 # Font
-font-family = Iosevka Nerd Font
-# font-family = Terminess Nerd Font Mono
+# font-family = Iosevka Nerd Font
+font-family = Terminess Nerd Font Mono
 # font-family = JetBrainsMono Nerd Font Mono
-font-size = 18
+font-size = 20
 font-thicken = true 
 font-thicken-strength = 128 
 keybind = alt+minus=increase_font_size:1
@@ -80,4 +80,3 @@ keybind = ctrl+shift+arrow_down=scroll_page_lines:1
 # Scrolling: half page at a time
 keybind = alt+ctrl+shift+arrow_up=scroll_page_fractional:-0.5
 keybind = alt+ctrl+shift+arrow_down=scroll_page_fractional:0.5
-

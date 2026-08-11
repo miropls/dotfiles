@@ -1,3 +1,45 @@
 {
-  "$schema": "https://opencode.ai/config.json"
+  "$schema": "https://opencode.ai/config.json",
+  "default_agent": "plan",
+  "enabled_providers": [
+    "google-vertex",
+    "google-vertex-anthropic",
+    "github-copilot",
+    "lmstudio"
+  ],
+  "provider": {
+    "lmstudio": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "LM Studio (local)",
+      "options": {
+        "baseURL": "http://127.0.0.1:1234/v1"
+      },
+      "models": {
+        "mlx-community/gemma-4-12b-it-qat": {
+          "name": "Gemma 4 - 12B QAT"
+        }
+      }
+    }
+  },
+  "model": "google-vertex-anthropic/claude-sonnet-5@default",
+  "small_model": "google-vertex-anthropic/claude-haiku-4-5@20251001",
+  "lsp": true,
+  "plugin": [
+    "superpowers@git+https://github.com/obra/superpowers.git"
+  ],
+  "mcp": {
+    "exa": {
+      "type": "remote",
+      "url": "https://mcp.exa.ai/mcp",
+      "enabled": true
+    },
+    "playwright": {
+      "type": "local",
+      "command": [
+        "npx",
+        "@playwright/mcp@latest"
+      ],
+      "enabled": true
+    },
+  }
 }
