@@ -1,0 +1,2 @@
+[alias]
+	whoami = "!f() { echo \"commit identity : $(git config user.email)\"; echo \"remote / auth   : $(git remote get-url origin 2>/dev/null || echo 'no origin remote')\"; }; f"
