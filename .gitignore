@@ -10,3 +10,9 @@
 .config/vercel-plugin
 .config/cagent
 .config/fish/conf.d/secret.fish
+.pi/agent/mcp-cache.json
+.pi/agent/mcp-npx-cache.json
+.pi/agent/mcp-onboarding.json
+.pi/agent/models-store.json
+.pi/agent/trust.json
+.pi/agent/npm

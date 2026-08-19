@@ -29,9 +29,9 @@ copy-on-select = clipboard
 
 # Font
 # font-family = Iosevka Nerd Font
-font-family = Terminess Nerd Font Mono
-# font-family = JetBrainsMono Nerd Font Mono
-font-size = 20
+# font-family = Terminess Nerd Font Mono
+font-family = JetBrainsMono Nerd Font Mono
+font-size = 17
 font-thicken = true 
 font-thicken-strength = 128 
 keybind = alt+minus=increase_font_size:1

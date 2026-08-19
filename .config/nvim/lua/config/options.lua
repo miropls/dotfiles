@@ -8,6 +8,7 @@ o.showtabline = 1
 o.guicursor = ""
 o.nu = true
 o.relativenumber = true
+o.cmdheight = 1
 o.cursorline = true
 o.winborder = "rounded"
 o.showbreak = "↪ "

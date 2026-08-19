@@ -1,0 +1,41 @@
+{
+  "version": 3,
+  "skills": {
+    "obsidian": {
+      "source": "bitbonsai/mcpvault",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/bitbonsai/mcpvault.git",
+      "skillPath": "skills/obsidian/SKILL.md",
+      "skillFolderHash": "b4a18bab226c987562c0d2f9a32eb618c2f8417a",
+      "installedAt": "2026-08-18T17:53:15.358Z",
+      "updatedAt": "2026-08-18T17:53:15.358Z"
+    },
+    "find-skills": {
+      "source": "vercel-labs/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/vercel-labs/skills.git",
+      "skillPath": "skills/find-skills/SKILL.md",
+      "skillFolderHash": "76a98a285cb0434f3d39e1a873823556330e398b",
+      "installedAt": "2026-08-18T17:53:19.999Z",
+      "updatedAt": "2026-08-18T17:53:19.999Z"
+    }
+  },
+  "dismissed": {
+    "findSkillsPrompt": true
+  },
+  "lastSelectedAgents": [
+    "amp",
+    "antigravity",
+    "antigravity-cli",
+    "cline",
+    "codex",
+    "cursor",
+    "deepagents",
+    "gemini-cli",
+    "github-copilot",
+    "kimi-code-cli",
+    "opencode",
+    "warp",
+    "zed"
+  ]
+}

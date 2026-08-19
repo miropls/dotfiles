@@ -5,7 +5,6 @@ set -g fish_greeting
 ~/.local/bin/mise activate fish | source
 starship init fish | source
 zoxide init fish | source
-alias cd="z"
 source /Users/paintmi/.safe-chain/scripts/init-fish.fish # Safe-chain Fish initialization script
 
 # The next line updates PATH for the Google Cloud SDK.

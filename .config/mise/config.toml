@@ -25,3 +25,5 @@ python = "latest"
 "github:agavra/tuicr" = "latest"
 acli = "latest"
 supabase = "latest"
+aws = { version = "latest", symlink_bins = "true" }
+pi = "latest"

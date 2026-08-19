@@ -20,29 +20,6 @@ return {
 			opts = function()
 				return {
 					keymap = { preset = "enter" },
-					cmdline = {
-						keymap = {
-							preset = "cmdline",
-							["<Tab>"] = {
-								function(cmp)
-									if not cmp.is_menu_visible() then
-										cmp.show()
-									else
-										cmp.select_next()
-									end
-								end,
-							},
-							["<S-Tab>"] = {
-								function(cmp)
-									if not cmp.is_menu_visible() then
-										cmp.show()
-									else
-										cmp.select_prev()
-									end
-								end,
-							},
-						},
-					},
 					appearance = { use_nvim_cmp_as_default = true, nerd_font_variant = "mono" },
 					sources = {
 						default = { "lsp", "path", "snippets", "buffer", "lazydev" },
@@ -119,7 +96,7 @@ return {
 				"stylua",
 				"tailwindcss",
 				"taplo",
-				"tsgo",
+				"vtsls",
 				"vimls",
 				"yamlls",
 				"zls",

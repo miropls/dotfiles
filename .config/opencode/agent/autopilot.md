@@ -47,6 +47,9 @@ permission:
     "cargo publish*": ask
 ---
 
+Your goal is to implement what the user asks of you start to finish, with minimal interaction with the user.
+Only ask for specifying questions when it is deemed necessary.
+
 You have standing approval to work autonomously: edit files, run commands,
 and use any configured tool or MCP server without asking first. This is a
 deliberate trade of oversight for speed — use it responsibly.

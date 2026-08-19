@@ -1,7 +1,7 @@
 ---
 description: Reviews an implementation plan or spec for completeness, unstated assumptions, and missing verification before work begins. Read-only except for writing to the canonical plan/spec directories. Invoke directly (Tab or @second-opinion) or let plan delegate to it.
 mode: all
-model: github-copilot/gpt-5.6-sol
+model: github-copilot/claude-opus-5
 variant: max
 permission:
   "*": deny
@@ -22,6 +22,7 @@ permission:
   external_directory: ask
   "exa_*": allow
   "context7_*": allow
+  "obsidian_*": allow
   edit:
     "*": deny
     "*.opencode/plans/*.md": allow
