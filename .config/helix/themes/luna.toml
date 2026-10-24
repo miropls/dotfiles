@@ -1,0 +1,167 @@
+# Luna for Helix
+# ---------------
+# Ported from wtfox/luna.nvim
+# https://github.com/wtfox/luna.nvim
+
+# Syntax highlighting
+# --------------------
+"attribute" = "signal"
+
+"type" = "type"
+"type.builtin" = "type"
+"type.parameter" = "type"
+"type.enum.variant" = "type"
+
+"constructor" = "type"
+
+"constant" = "type"
+"constant.builtin" = "type"
+"constant.character" = "string"
+"constant.character.escape" = "signal"
+"constant.numeric" = "keyword"
+
+"string" = "string"
+"string.regexp" = "signal"
+"string.special" = "signal"
+"string.special.url" = { fg = "string", modifiers = ["underlined"] }
+"string.special.path" = "string"
+"string.special.symbol" = "keyword"
+
+"comment" = { fg = "comment", modifiers = ["italic"] }
+"comment.block.documentation" = { fg = "grey_light", modifiers = ["italic"] }
+"comment.line.documentation" = { fg = "grey_light", modifiers = ["italic"] }
+
+"variable" = "fg"
+"variable.parameter" = { fg = "fg", modifiers = ["italic"] }
+"variable.builtin" = "keyword"
+"variable.other.member" = "fg"
+
+"label" = "signal"
+
+"punctuation" = "grey_pale"
+"punctuation.special" = "signal"
+"punctuation.bracket" = "grey_pale"
+"punctuation.delimiter" = "grey_pale"
+
+"keyword" = "keyword"
+"keyword.operator" = "keyword"
+"keyword.directive" = { fg = "keyword", modifiers = ["italic"] }
+"keyword.storage.modifier" = { fg = "keyword", modifiers = ["italic"] }
+
+"operator" = "grey_pale"
+
+"function" = "func"
+"function.builtin" = { fg = "func", modifiers = ["italic"] }
+"function.macro" = "keyword"
+
+"tag" = "type"
+
+"namespace" = "type"
+
+"special" = "signal"
+
+"markup.heading" = { fg = "func", modifiers = ["bold"] }
+"markup.list" = "keyword"
+"markup.bold" = { modifiers = ["bold"] }
+"markup.italic" = { modifiers = ["italic"] }
+"markup.link.url" = { fg = "string", modifiers = ["underlined"] }
+"markup.link.text" = "func"
+"markup.raw" = { fg = "fg", bg = "bg_soft" }
+"markup.quote" = { fg = "grey_light", modifiers = ["italic"] }
+
+"diff.plus" = "ok"
+"diff.minus" = "error"
+"diff.delta" = "signal"
+
+# User interface
+# --------------
+"ui.background" = { fg = "fg", bg = "bg" }
+
+"ui.linenr" = { fg = "line_nr" }
+"ui.linenr.selected" = { fg = "grey_pale" }
+
+"ui.statusline" = { fg = "fg", bg = "bg_alt" }
+"ui.statusline.inactive" = { fg = "comment", bg = "bg_alt" }
+"ui.statusline.normal" = { fg = "bg", bg = "func", modifiers = ["bold"] }
+"ui.statusline.insert" = { fg = "bg", bg = "ok", modifiers = ["bold"] }
+"ui.statusline.select" = { fg = "bg", bg = "type", modifiers = ["bold"] }
+
+"ui.popup" = { fg = "fg", bg = "float_bg" }
+"ui.info" = { fg = "func", bg = "float_bg" }
+"ui.window" = { fg = "border" }
+"ui.help" = { fg = "fg", bg = "float_bg" }
+
+"ui.bufferline" = { fg = "grey", bg = "bg_alt" }
+"ui.bufferline.active" = { fg = "fg", bg = "bg_soft", underline = { color = "func", style = "line" } }
+"ui.bufferline.background" = { bg = "bg_alt" }
+
+"ui.text" = "fg"
+"ui.text.focus" = { fg = "fg_bright", bg = "bg_soft", underline = { color = "func", style = "line" } }
+"ui.text.inactive" = "comment"
+"ui.text.directory" = "func"
+
+"ui.virtual" = "comment"
+"ui.virtual.ruler" = { bg = "cursor_line" }
+"ui.virtual.whitespace" = "surface"
+"ui.virtual.indent-guide" = "surface"
+"ui.virtual.wrap" = "surface"
+"ui.virtual.inlay-hint" = { fg = "comment", modifiers = ["italic"] }
+"ui.virtual.jump-label" = { fg = "bg", bg = "signal", modifiers = ["bold"] }
+
+"ui.selection" = { bg = "selection" }
+
+"ui.cursor.normal" = { fg = "bg", bg = "grey_pale" }
+"ui.cursor.insert" = { fg = "bg", bg = "func" }
+"ui.cursor.select" = { fg = "bg", bg = "type" }
+"ui.cursor.primary.normal" = { fg = "bg", bg = "fg_bright", modifiers = ["bold"] }
+"ui.cursor.primary.insert" = { fg = "bg", bg = "func", modifiers = ["bold"] }
+"ui.cursor.primary.select" = { fg = "bg", bg = "type", modifiers = ["bold"] }
+"ui.cursor.match" = { fg = "signal", modifiers = ["underlined"] }
+
+"ui.cursorline.primary" = { bg = "cursor_line" }
+"ui.cursorline" = { bg = "bg_soft" }
+
+"ui.highlight" = { fg = "func", bg = "cursor_line", underline = { color = "func", style = "line" }, modifiers = ["bold"] }
+
+"ui.menu" = { fg = "fg", bg = "float_bg" }
+"ui.menu.selected" = { fg = "bg", bg = "func", modifiers = ["bold"] }
+
+"diagnostic.error" = { underline = { color = "error", style = "curl" } }
+"diagnostic.warning" = { underline = { color = "warning", style = "curl" } }
+"diagnostic.info" = { underline = { color = "info", style = "dotted" } }
+"diagnostic.hint" = { underline = { color = "hint", style = "dotted" } }
+"diagnostic.unnecessary" = { modifiers = ["dim"] }
+
+error = { fg = "error", bg = "float_bg" }
+warning = { fg = "warning", bg = "float_bg" }
+info = { fg = "info", bg = "float_bg" }
+hint = { fg = "hint", bg = "float_bg" }
+
+[palette]
+bg = "#060606"
+bg_alt = "#1c1c1c"
+bg_soft = "#1f1f1f"
+surface = "#333333"
+selection = "#384048"
+border = "#404040"
+float_bg = "#403c41"
+line_nr = "#33302f"
+
+comment = "#7c7c7c"
+grey = "#888888"
+grey_light = "#a8a8a8"
+grey_pale = "#b8b8b8"
+fg = "#e4e4e8"
+fg_bright = "#f0f0f0"
+
+keyword = "#e19067"
+func = "#75a1c7"
+type = "#c4a8d6"
+string = "#9eb38e"
+signal = "#c2916a"
+
+error = "#e08585"
+warning = "#d9a35a"
+info = "#8c9cb8"
+hint = "#b09080"
+ok = "#6fbe80"

@@ -2,28 +2,27 @@
 idiomatic_version_file_enable_tools = ["node"]
 
 [tools]
+# Languages
 node = "latest"
+rust = "latest"
+go = "latest"
+python = "latest"
+zig = "0.17.0"
+
+# Package managers
+uv = "latest"
+bun = "latest"
+pnpm = "latest"
+
+# CLI tools
 ripgrep = "latest"
 usage = "latest"
 fzf = "latest"
 fd = "latest"
 bat = "latest"
-rust = "latest"
-go = "latest"
 gh = "latest"
 neovim = "latest"
 starship = "latest"
 zoxide = "latest"
-zig = "0.16.0"
 lazygit = "latest"
-helix = "latest"
-uv = "latest"
-zellij = "latest"
-opencode = "latest"
-pnpm = "latest"
-python = "latest"
-"github:agavra/tuicr" = "latest"
-acli = "latest"
-supabase = "latest"
-aws = { version = "latest", symlink_bins = "true" }
-pi = "latest"
+"cargo:mandible" = "latest"

@@ -89,7 +89,6 @@ eval "$(starship init zsh)"
 
 # opencode
 export PATH=/Users/paintmi/.opencode/bin:$PATH
-source /Users/paintmi/.safe-chain/scripts/init-posix.sh # Safe-chain Zsh initialization script
 
 # Added by LM Studio CLI (lms)
 export PATH="$PATH:/Users/paintmi/.lmstudio/bin"

@@ -1,3 +1,7 @@
+# The following lines were added by Docker Desktop to add commands to your PATH.
+export PATH="$PATH:/Users/miropls/.docker/bin"
+# End of Docker Desktop section.
+
 if status is-interactive
 end
 
@@ -5,7 +9,7 @@ set -g fish_greeting
 ~/.local/bin/mise activate fish | source
 starship init fish | source
 zoxide init fish | source
-source /Users/paintmi/.safe-chain/scripts/init-fish.fish # Safe-chain Fish initialization script
+# source /Users/paintmi/.safe-chain/scripts/init-fish.fish # Safe-chain Fish initialization script
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/paintmi/google-cloud-sdk/path.fish.inc' ]; . '/Users/paintmi/google-cloud-sdk/path.fish.inc'; end

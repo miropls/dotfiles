@@ -1,0 +1,14 @@
+# Luna (transparent) for Helix
+# -----------------------------
+# Same as luna.toml but with the editor background left transparent
+# so the terminal's own background shows through.
+inherits = "luna"
+
+"ui.background" = { fg = "fg" }
+"ui.linenr" = { fg = "line_nr" }
+"ui.gutter" = {}
+"ui.statusline" = { fg = "fg" }
+"ui.statusline.inactive" = { fg = "comment" }
+"ui.bufferline" = { fg = "grey" }
+"ui.bufferline.background" = {}
+"ui.cursorline" = {}
