@@ -2,6 +2,9 @@
 .pi/agent/auth.json
 .pi/agent/run-history.jsonl
 .pi/agent/sessions/
+.pi/agent/missions/
+.pi/agent/mcp-last-seen-version.json
+.pi/agent/**/last-seen-version.json
 .pi/plan.md
 .config/gcloud
 .config/acli

@@ -53,7 +53,7 @@ export NVM_DIR="$HOME/.nvm"
 export PATH="$PATH:$HOME/.cargo/bin"
 
 # Secrets
-[ -f "$HOME/.secrets" ] && source "$HOME/.secrets"
+[ -f "$HOME/.zsh-secrets" ] && source "$HOME/.zsh-secrets"
 
 # The following lines have been added by Docker Desktop to enable Docker CLI completions.
 fpath=(/Users/paintmi/.docker/completions $fpath)

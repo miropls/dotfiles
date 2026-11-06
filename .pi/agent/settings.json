@@ -1,0 +1,54 @@
+{
+  "lastChangelogVersion": "1.5.0",
+  "theme": "luna",
+  "defaultProvider": "deepseek",
+  "defaultModel": "deepseek-v4-pro",
+  "defaultThinkingLevel": "medium",
+  "hideThinkingBlock": true,
+  "subagents": {
+    "defaultModel": "deepseek-v4-pro",
+    "defaultThinking": "medium",
+    "agentOverrides": {
+      "scout": {
+        "model": "deepseek-flash",
+        "thinking": "low"
+      },
+      "delegate": {
+        "model": "deepseek-flash",
+        "thinking": "low"
+      },
+      "researcher": {
+        "model": "deepseek-v4-pro",
+        "thinking": "medium"
+      },
+      "worker": {
+        "model": "deepseek-v4-pro",
+        "thinking": "high"
+      },
+      "reviewer": {
+        "model": "deepseek-v4-pro",
+        "thinking": "high"
+      },
+      "oracle": {
+        "model": "deepseek-v4-pro",
+        "thinking": "high"
+      }
+    }
+  },
+  "packages": [
+    "npm:pi-mcp-adapter",
+    "npm:pi-web-access",
+    "npm:@juicesharp/rpiv-todo",
+    "npm:pi-lens",
+    "npm:pi-subagents"
+  ],
+  "extensionChangelogVersions": {
+    "{\"source\":\"npm:pi-mcp-adapter\",\"scope\":\"user\"}": "7.0.1",
+    "{\"source\":\"npm:pi-web-access\",\"scope\":\"user\"}": "0.47.0",
+    "{\"source\":\"npm:pi-lens\",\"scope\":\"user\"}": "4.4.9",
+    "{\"source\":\"npm:pi-subagents\",\"scope\":\"user\"}": "0.86.0"
+  },
+  "extensions": [
+    "-builtin:mcp"
+  ]
+}
